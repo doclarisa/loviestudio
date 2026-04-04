@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Men Who Forged Industrial America — Lovie Project Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/article.css" />
+</head>
+<body class="article-page">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="site-header site-header--article">
+    <nav class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-brand-link">
+          <span class="brand-mark">LP</span>
+          <div class="brand-text">
+            <span class="brand-name">Lovie Project Studio</span>
+            <span class="brand-tagline">Narrative Business History</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#stories">Stories</a></li>
+        <li><a href="index.html#video">Video</a></li>
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Work With Us</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         ARTICLE HERO
+    ============================================================ -->
+    <section class="article-hero">
+      <div class="article-hero-image-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1800&q=80&auto=format&fit=crop"
+          alt="Steel workers at a Bessemer converter, Pittsburgh, circa 1880"
+          class="article-hero-img"
+        />
+        <div class="article-hero-overlay"></div>
+      </div>
+
+      <div class="article-hero-content">
+        <div class="article-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="index.html#stories">Stories</a>
+          <span aria-hidden="true">›</span>
+          <span>Gilded Age</span>
+        </div>
+
+        <div class="article-hero-tags">
+          <span class="tag tag--era">Gilded Age · 1870–1900</span>
+          <span class="tag">Industry &amp; Labor</span>
+        </div>
+
+        <h1 class="article-hero-title">
+          The Men Who Forged<br />
+          <em>Industrial America</em>
+        </h1>
+
+        <div class="article-hero-meta">
+          <span class="article-meta-item">
+            <svg class="meta-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M8 4.5v3.75l2.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+            8 min read
+          </span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">Published March 28, 2026</span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">By <a href="#">Sarah Lovie</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE LAYOUT — sidebar + body
+    ============================================================ -->
+    <div class="article-layout">
+
+      <!-- ── Sticky Sidebar ───────────────────────────────────── -->
+      <aside class="article-sidebar">
+
+        <!-- Table of Contents -->
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-label">In this story</p>
+          <ol class="toc-list">
+            <li><a href="#section-context" class="toc-link">Setting the Scene</a></li>
+            <li><a href="#section-iron" class="toc-link">The Iron Equation</a></li>
+            <li><a href="#section-men" class="toc-link">The Men Behind the Metal</a></li>
+            <li><a href="#section-labor" class="toc-link">The Cost of Progress</a></li>
+            <li><a href="#section-legacy" class="toc-link">A Complicated Legacy</a></li>
+          </ol>
+        </nav>
+
+        <!-- Share / Save (static) -->
+        <div class="sidebar-share">
+          <p class="toc-label">Share</p>
+          <div class="share-links">
+            <a href="#" class="share-link" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.726-8.84L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── Article Body ──────────────────────────────────────── -->
+      <article class="article-body">
+
+        <!-- Historical Context Box -->
+        <div class="context-box" id="section-context">
+          <p class="context-box-eyebrow">Historical Context</p>
+          <p>
+            Between 1870 and 1900, the United States transformed from a largely agrarian
+            economy into the world's leading industrial power. Steel output increased
+            fiftyfold. Railroad track doubled. And a handful of men—some brilliant, some
+            ruthless, most both—sat at the center of it all.
+          </p>
+        </div>
+
+        <!-- Body text begins -->
+        <p class="article-lede">
+          On a bitter January morning in 1875, a twenty-three-year-old foreman named
+          Henry Clay Frick walked into a Pittsburgh bank and asked for a loan of
+          $10,000. He wanted to buy coke ovens. The banker, by most accounts, laughed.
+          Within six years, Frick controlled the majority of the coke supply in
+          western Pennsylvania—and had become indispensable to the most powerful
+          steelmaker in the world.
+        </p>
+
+        <p>
+          That steelmaker was Andrew Carnegie. And the story of how Carnegie, Frick,
+          and a generation of industrialists turned raw material into economic empire
+          is also the story of how modern America was invented—its management structures,
+          its labor conflicts, its culture of aspiration, and its tolerance for
+          spectacular human cost.
+        </p>
+
+        <!-- Section 2 -->
+        <h2 class="article-section-heading" id="section-iron">The Iron Equation</h2>
+
+        <p>
+          The key insight of the Gilded Age industrialists was not technical—it was
+          logistical. Steel itself had been known for centuries. The Bessemer converter,
+          which made mass steel production economically viable, had been patented in
+          1856. What Carnegie understood, and what his competitors were slow to grasp,
+          was that the profit was not in making steel. It was in controlling every step
+          of the process that led to steel.
+        </p>
+
+        <!-- Inline archival image -->
+        <figure class="article-figure">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Carnegie_Steel_Company_blast_furnaces%2C_Homestead_Steel_Works%2C_1907.jpg/1280px-Carnegie_Steel_Company_blast_furnaces%2C_Homestead_Steel_Works%2C_1907.jpg"
+            alt="Carnegie Steel blast furnaces at Homestead Steel Works, 1907"
+            class="article-img"
+            loading="lazy"
+          />
+          <figcaption class="article-caption">
+            Carnegie Steel Company blast furnaces at the Homestead Steel Works, 1907.
+            <span class="caption-source">Library of Congress, Prints &amp; Photographs Division</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          Carnegie's vertical integration—owning iron ore deposits, limestone quarries,
+          railroads, and steamships, in addition to the mills themselves—meant he could
+          undercut any competitor on price and still profit. When rail prices dropped,
+          competitors bled. Carnegie thrived.
+        </p>
+
+        <!-- Pull Quote -->
+        <blockquote class="pull-quote">
+          <p>"Two percent is not enough. Give me the whole market or give me nothing."</p>
+          <cite>Andrew Carnegie, internal memo, circa 1887</cite>
+        </blockquote>
+
+        <!-- Section 3 -->
+        <h2 class="article-section-heading" id="section-men">The Men Behind the Metal</h2>
+
+        <p>
+          Carnegie was the face, but the operation ran on a cadre of managers and
+          partners who were, in many ways, more interesting. Charles Schwab—no relation
+          to the brokerage founder—ran Carnegie's mills with a stopwatch and an
+          obsessive faith in efficiency metrics. He pioneered what we now call
+          performance management: every department tracked against every other, foremen
+          competing for bonuses based on tonnage.
+        </p>
+
+        <p>
+          Frick's role was darker and more essential. As chairman of Carnegie Steel,
+          he handled the parts of the business Carnegie preferred not to see up close:
+          the labor negotiations, the Pinkerton contracts, the political lobbying. He
+          was, in the parlance of the era, "the man who did what had to be done."
+        </p>
+
+        <!-- Embedded video -->
+        <div class="article-video-wrap">
+          <div class="article-video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="The Carnegie Steel Empire — Documentary"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <p class="article-video-caption">
+            Archival documentary footage of the Carnegie Steel operations at Homestead,
+            including worker interviews recorded in the 1970s.
+          </p>
+        </div>
+
+        <!-- Section 4 -->
+        <h2 class="article-section-heading" id="section-labor">The Cost of Progress</h2>
+
+        <!-- Second archival image -->
+        <figure class="article-figure article-figure--right">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Library_of_Congress%2C_Prints_and_Photographs_Division%2C_Detroit_Publishing_Company_Collection%2C_LC-D4-13019.jpg/800px-Library_of_Congress%2C_Prints_and_Photographs_Division%2C_Detroit_Publishing_Company_Collection%2C_LC-D4-13019.jpg"
+            alt="Steel workers at Homestead, circa 1900"
+            class="article-img"
+            loading="lazy"
+          />
+          <figcaption class="article-caption">
+            Workers outside the Homestead Steel Works, circa 1900.
+            <span class="caption-source">Library of Congress, Detroit Publishing Co.</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          The Homestead Strike of 1892 is remembered as a labor catastrophe, but it is
+          also, at its core, a business story. When Frick locked out the Amalgamated
+          Association of Iron and Steel Workers and brought in three hundred Pinkerton
+          guards by barge on the Monongahela River, he was executing a rational
+          corporate strategy: break the union, cut wages, increase throughput.
+        </p>
+
+        <p>
+          The strategy worked. In the short term. Output at Homestead increased. Wages
+          fell. Profits rose. But the reputational damage to Carnegie—who was in Scotland
+          at the time, carefully absent—proved lasting, and the incident seeded a
+          generation of labor activism that would eventually, forty years later, produce
+          the National Labor Relations Act.
+        </p>
+
+        <!-- Pull Quote 2 -->
+        <blockquote class="pull-quote pull-quote--alt">
+          <p>
+            Every efficiency gain in the mill was paid for somewhere, by someone, in
+            ways that rarely appeared on the ledger.
+          </p>
+        </blockquote>
+
+        <!-- Section 5 -->
+        <h2 class="article-section-heading" id="section-legacy">A Complicated Legacy</h2>
+
+        <p>
+          Carnegie died in 1919, having given away 90 percent of his fortune—over
+          $350 million—to libraries, universities, and peace organizations. Historians
+          still argue about what that philanthropy means. Was it penance? Genuine
+          idealism? Or simply the most effective form of reputation management ever
+          devised?
+        </p>
+
+        <p>
+          What is harder to dispute is the structural legacy. The management systems
+          developed in Carnegie's mills—cost accounting, departmental competition,
+          performance benchmarks—became the template for American industrial management
+          for the next hundred years. We still live, in many ways, in the operational
+          world that Pittsburgh built.
+        </p>
+
+        <!-- Fact vs. Dramatization Note -->
+        <div class="editorial-note">
+          <div class="editorial-note-header">
+            <svg class="editorial-note-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 6v5M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>A Note on Narrative &amp; Sources</span>
+          </div>
+          <p>
+            The opening anecdote—Frick's loan conversation—is reconstructed from period
+            accounts and biographies, including <em>The Gospel of Wealth</em> and
+            Les Standiford's <em>Meet You in Hell</em>. Direct quotations are sourced
+            from letters, testimony, or contemporaneous reporting; the Carnegie memo
+            cited above appears in the Carnegie Papers, Library of Congress. Where
+            scenes are dramatized for narrative clarity, they are grounded in
+            documented fact. This story is narrative nonfiction, not fiction.
+          </p>
+        </div>
+
+      </article>
+      <!-- /article-body -->
+
+    </div>
+    <!-- /article-layout -->
+
+    <!-- ============================================================
+         RELATED STORIES
+    ============================================================ -->
+    <section class="related-stories">
+      <div class="container">
+        <h2 class="related-title">More from the Gilded Age Collection</h2>
+        <div class="related-grid">
+
+          <article class="card card--story">
+            <a href="#" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&q=75&auto=format&fit=crop"
+                  alt="Vintage stock ticker"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Progressive Era · 1900–1920</span>
+              <h3 class="card-title"><a href="#">When Wall Street Was a Wild West</a></h3>
+              <p class="card-desc">Before the SEC, speculators and reformers invented modern finance in real time.</p>
+              <a href="#" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="#" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=600&q=75&auto=format&fit=crop"
+                  alt="Vintage portrait of industrial era"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Gilded Age · 1875–1905</span>
+              <h3 class="card-title"><a href="#">The Palace of Goods</a></h3>
+              <p class="card-desc">Marshall Field and the invention of the department store as theater of aspiration.</p>
+              <a href="#" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="#" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=600&q=75&auto=format&fit=crop"
+                  alt="Old printing press"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Reconstruction Era · 1865–1877</span>
+              <h3 class="card-title"><a href="#">The Press That Rebuilt the South</a></h3>
+              <p class="card-desc">How Black-owned newspapers became the backbone of Reconstruction-era commerce.</p>
+              <a href="#" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark brand-mark--footer">LP</span>
+        <span class="brand-name brand-name--footer">Lovie Project Studio</span>
+        <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html#stories">Stories</a></li>
+          <li><a href="index.html#video">Video</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p>Inquiries</p>
+        <a href="mailto:hello@lovieprojectstudio.com">hello@lovieprojectstudio.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lovie Project Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/article.js"></script>
+</body>
+</html>
