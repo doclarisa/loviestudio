@@ -103,7 +103,7 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="era" data-filter-value="all">
                   All Eras
-                  <span class="filter-btn-count">14</span>
+                  <span class="filter-btn-count">15</span>
                 </button>
               </li>
               <li>
@@ -139,7 +139,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="era" data-filter-value="cold-war">
                   Cold War
-                  <span class="filter-btn-count">2</span>
+                  <span class="filter-btn-count">3</span>
                 </button>
               </li>
               <li>
@@ -164,7 +164,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="theme" data-filter-value="espionage">
                   Espionage
-                  <span class="filter-btn-count">2</span>
+                  <span class="filter-btn-count">3</span>
                 </button>
               </li>
               <li>
@@ -214,6 +214,41 @@
           <!-- ── Story Cards ──────────────────────────────────── -->
           <!-- Each card carries data-era and data-theme for JS filtering -->
           <!-- data-date is ISO for sort; lower index = newer -->
+
+          <article class="story-card"
+            data-era="cold-war"
+            data-theme="espionage"
+            data-date="2026-04-05">
+            <a href="article-guillaume-nato-cipher.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="img/gunter.guillame.jpg"
+                  alt="Günter Guillaume, Stasi sleeper agent"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Cold War</span>
+                <span class="tag tag--theme">Espionage</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article-guillaume-nato-cipher.html">The Cipher That Almost Ended NATO</a>
+              </h2>
+              <p class="story-card-deck">
+                For twenty-two years, a quiet West German bureaucrat photographed NATO's
+                most sensitive secrets and sent them to East Berlin. No one noticed
+                until it was almost too late.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Apr 5, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">26 min read</span>
+              </div>
+            </div>
+          </article>
 
           <article class="story-card"
             data-era="gilded-age"

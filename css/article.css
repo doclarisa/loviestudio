@@ -472,6 +472,35 @@
   border: none;
 }
 
+/* Inline list (used in espionage / structured content) */
+.article-list {
+  margin: 0 0 var(--space-md) 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 64ch;
+}
+
+.article-list li {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.article-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.85rem;
+  top: 0.15em;
+}
+
 .article-video-caption {
   font-family: var(--font-ui) !important;
   font-size: 0.78rem !important;
