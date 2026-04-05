@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Stories — Lovie Project Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/stories.css" />
+</head>
+<body class="stories-page">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-brand-link">
+          <span class="brand-mark">LP</span>
+          <div class="brand-text">
+            <span class="brand-name">Lovie Project Studio</span>
+            <span class="brand-tagline">Narrative Business History</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="stories.html" class="nav-active">Stories</a></li>
+        <li><a href="index.html#video">Video</a></li>
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Work With Us</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HEADER
+    ============================================================ -->
+    <div class="stories-page-header">
+      <div class="container">
+        <p class="stories-eyebrow">The Archive</p>
+        <h1 class="stories-page-title">All Stories</h1>
+        <p class="stories-page-desc">
+          Historically grounded narrative nonfiction about the businesses, industries,
+          and people who shaped the modern world.
+        </p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         STORIES LAYOUT — sidebar + grid
+    ============================================================ -->
+    <div class="stories-layout container">
+
+      <!-- ── Filter Sidebar ───────────────────────────────────── -->
+      <aside class="filter-sidebar" id="filter-sidebar" aria-label="Filter stories">
+
+        <!-- Mobile toggle button (shown < 900px) -->
+        <button class="filter-toggle-btn" id="filter-toggle" aria-expanded="false" aria-controls="filter-panels">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M2 5h16M5 10h10M8 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Filters
+          <span class="filter-active-count" id="filter-count" hidden>0</span>
+        </button>
+
+        <div class="filter-panels" id="filter-panels">
+
+          <!-- Active filters summary -->
+          <div class="filter-active-bar" id="filter-active-bar" hidden>
+            <span class="filter-active-label">Active:</span>
+            <div class="filter-pills" id="filter-pills"></div>
+            <button class="filter-clear-all" id="filter-clear-all">Clear all</button>
+          </div>
+
+          <!-- Sort -->
+          <div class="filter-group">
+            <h2 class="filter-group-label">Sort by</h2>
+            <div class="sort-options">
+              <label class="sort-option">
+                <input type="radio" name="sort" value="newest" checked />
+                <span>Newest first</span>
+              </label>
+              <label class="sort-option sort-option--disabled" title="Coming soon">
+                <input type="radio" name="sort" value="popular" disabled />
+                <span>Most popular <em>(coming soon)</em></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Era filter -->
+          <div class="filter-group">
+            <h2 class="filter-group-label">Filter by Era</h2>
+            <ul class="filter-list" role="list">
+              <li>
+                <button class="filter-btn is-active" data-filter-type="era" data-filter-value="all">
+                  All Eras
+                  <span class="filter-btn-count">12</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="ancient">
+                  Ancient World
+                  <span class="filter-btn-count">1</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="medieval">
+                  Medieval
+                  <span class="filter-btn-count">1</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="gilded-age">
+                  Gilded Age
+                  <span class="filter-btn-count">3</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="wwi">
+                  WWI Era
+                  <span class="filter-btn-count">1</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="wwii">
+                  WWII Era
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="cold-war">
+                  Cold War
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="modern">
+                  Modern
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Theme filter -->
+          <div class="filter-group">
+            <h2 class="filter-group-label">Filter by Theme</h2>
+            <ul class="filter-list" role="list">
+              <li>
+                <button class="filter-btn is-active" data-filter-type="theme" data-filter-value="all">
+                  All Themes
+                  <span class="filter-btn-count">12</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="theme" data-filter-value="espionage">
+                  Espionage
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="theme" data-filter-value="royal-scandals">
+                  Royal Scandals
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="theme" data-filter-value="forgotten-disasters">
+                  Forgotten Disasters
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="theme" data-filter-value="survival-stories">
+                  Survival Stories
+                  <span class="filter-btn-count">2</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="theme" data-filter-value="business-industry">
+                  Business &amp; Industry
+                  <span class="filter-btn-count">4</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- /filter-panels -->
+      </aside>
+
+      <!-- ── Story Grid ────────────────────────────────────────── -->
+      <section class="stories-grid-wrap" aria-live="polite" aria-label="Story results">
+
+        <!-- Results bar -->
+        <div class="stories-results-bar">
+          <p class="stories-results-count" id="results-count">
+            Showing <strong>12</strong> stories
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="stories-grid" id="stories-grid">
+
+          <!-- ── Story Cards ──────────────────────────────────── -->
+          <!-- Each card carries data-era and data-theme for JS filtering -->
+          <!-- data-date is ISO for sort; lower index = newer -->
+
+          <article class="story-card"
+            data-era="gilded-age"
+            data-theme="business-industry"
+            data-date="2026-03-28">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700&q=75&auto=format&fit=crop"
+                  alt="Steel mill workers, Pittsburgh circa 1880"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Gilded Age</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Men Who Forged Industrial America</a>
+              </h2>
+              <p class="story-card-deck">
+                How Carnegie, Frick, and a generation of risk-takers turned raw iron and
+                immigrant labor into the most powerful economy the world had ever seen.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Mar 28, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">8 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="cold-war"
+            data-theme="espionage"
+            data-date="2026-03-14">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1580130732478-4e339fb33746?w=700&q=75&auto=format&fit=crop"
+                  alt="Cold War era cipher machine"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Cold War</span>
+                <span class="tag tag--theme">Espionage</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Cipher That Almost Ended NATO</a>
+              </h2>
+              <p class="story-card-deck">
+                A single West German clerk's double life exposed the deepest intelligence
+                penetration of the Cold War—and nearly unraveled the Western alliance.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Mar 14, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">11 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="wwii"
+            data-theme="survival-stories"
+            data-date="2026-02-27">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1542744094-24638eff58bb?w=700&q=75&auto=format&fit=crop"
+                  alt="WWII era supply convoy at sea"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">WWII Era</span>
+                <span class="tag tag--theme">Survival Stories</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">73 Days on the Atlantic</a>
+              </h2>
+              <p class="story-card-deck">
+                When U-boats sank his convoy, a merchant marine radio operator spent
+                ten weeks adrift with a handful of survivors and a damaged life raft.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Feb 27, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">14 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="gilded-age"
+            data-theme="royal-scandals"
+            data-date="2026-02-12">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=700&q=75&auto=format&fit=crop"
+                  alt="Gilded age ballroom"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Gilded Age</span>
+                <span class="tag tag--theme">Royal Scandals</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Ball That Broke a Dynasty</a>
+              </h2>
+              <p class="story-card-deck">
+                Mrs. Astor's final season was supposed to cement a social empire.
+                Instead, a single invitation ignited the most spectacular collapse
+                in American aristocratic history.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Feb 12, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">9 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="modern"
+            data-theme="business-industry"
+            data-date="2026-01-30">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=700&q=75&auto=format&fit=crop"
+                  alt="Stock exchange trading floor"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Modern</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Six Days That Crashed the Market</a>
+              </h2>
+              <p class="story-card-deck">
+                In 1987, a cascading series of program trades and regulatory blind spots
+                turned a routine correction into the worst single-day loss in NYSE history.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Jan 30, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">10 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="medieval"
+            data-theme="royal-scandals"
+            data-date="2026-01-15">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1589998059171-988d887df646?w=700&q=75&auto=format&fit=crop"
+                  alt="Medieval castle at dusk"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Medieval</span>
+                <span class="tag tag--theme">Royal Scandals</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Forged Seal of Edward II</a>
+              </h2>
+              <p class="story-card-deck">
+                A fabricated royal document triggered a succession crisis that split
+                England's nobility—and produced the first parliamentary challenge to
+                absolute monarchical power.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Jan 15, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">12 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="wwi"
+            data-theme="forgotten-disasters"
+            data-date="2025-12-20">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1616002160359-4a43dc5d4e4d?w=700&q=75&auto=format&fit=crop"
+                  alt="Trench warfare scene"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">WWI Era</span>
+                <span class="tag tag--theme">Forgotten Disasters</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Supply Collapse of 1917</a>
+              </h2>
+              <p class="story-card-deck">
+                A logistical failure no one wanted to report nearly starved the
+                Allied armies on the Western Front—and was quietly buried in
+                official histories for sixty years.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Dec 20, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">13 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="cold-war"
+            data-theme="espionage"
+            data-date="2025-12-05">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?w=700&q=75&auto=format&fit=crop"
+                  alt="Classified documents and shadows"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Cold War</span>
+                <span class="tag tag--theme">Espionage</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">Dead Drop: The Moscow Rules</a>
+              </h2>
+              <p class="story-card-deck">
+                The CIA's most successful handler in Soviet Russia ran 19 assets
+                simultaneously—using a set of protocols so effective they're still
+                taught at The Farm today.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Dec 5, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">15 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="gilded-age"
+            data-theme="business-industry"
+            data-date="2025-11-18">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=700&q=75&auto=format&fit=crop"
+                  alt="Old newspaper printing press"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Gilded Age</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Press That Rebuilt the South</a>
+              </h2>
+              <p class="story-card-deck">
+                How a network of Black-owned newspapers became the financial backbone
+                of Reconstruction-era commerce in the decade after the Civil War.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Nov 18, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">9 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="ancient"
+            data-theme="forgotten-disasters"
+            data-date="2025-11-02">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?w=700&q=75&auto=format&fit=crop"
+                  alt="Ancient Roman ruins"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Ancient World</span>
+                <span class="tag tag--theme">Forgotten Disasters</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Grain Crisis That Ended the Republic</a>
+              </h2>
+              <p class="story-card-deck">
+                Rome's transition from republic to empire was not driven by ambition
+                alone—it was driven by a catastrophic failure of the grain supply
+                that starved the capital for three winters.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Nov 2, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">11 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="wwii"
+            data-theme="business-industry"
+            data-date="2025-10-14">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=700&q=75&auto=format&fit=crop"
+                  alt="WWII era factory workers"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">WWII Era</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Women Who Built the Arsenal of Democracy</a>
+              </h2>
+              <p class="story-card-deck">
+                Six million women entered American factories between 1942 and 1945—
+                and transformed not just war production, but the economics of the
+                postwar workforce forever.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Oct 14, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">10 min read</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card"
+            data-era="modern"
+            data-theme="survival-stories"
+            data-date="2025-09-29">
+            <a href="article.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700&q=75&auto=format&fit=crop"
+                  alt="Depression era breadline"
+                  class="story-card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Modern</span>
+                <span class="tag tag--theme">Survival Stories</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article.html">The Company That Refused to Go Under</a>
+              </h2>
+              <p class="story-card-deck">
+                When Lehman Brothers collapsed in 2008, one mid-size manufacturing firm
+                in Ohio used the chaos to rebuild from near-bankruptcy into its most
+                profitable decade—by doing the opposite of everything the MBA playbook said.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Sep 29, 2025</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">12 min read</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <!-- /stories-grid -->
+
+        <!-- Empty state -->
+        <div class="stories-empty" id="stories-empty" hidden>
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 24h16M24 16v16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+          </svg>
+          <p>No stories match your current filters.</p>
+          <button class="btn btn--outline" id="empty-clear-btn">Clear filters</button>
+        </div>
+
+      </section>
+      <!-- /stories-grid-wrap -->
+
+    </div>
+    <!-- /stories-layout -->
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark brand-mark--footer">LP</span>
+        <span class="brand-name brand-name--footer">Lovie Project Studio</span>
+        <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="index.html#video">Video</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p>Inquiries</p>
+        <a href="mailto:hello@lovieprojectstudio.com">hello@lovieprojectstudio.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lovie Project Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/stories.js"></script>
+</body>
+</html>
