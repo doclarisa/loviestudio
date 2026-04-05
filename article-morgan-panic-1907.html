@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Man Who Locked the Door — Lovie Project Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/article.css" />
+</head>
+<body class="article-page">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="site-header site-header--article">
+    <nav class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-brand-link">
+          <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-name">Lovie Project Studio</span>
+            <span class="brand-tagline">Narrative Business History</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="index.html#video">Collections</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Work With Us</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         ARTICLE HERO
+    ============================================================ -->
+    <section class="article-hero">
+      <div class="article-hero-image-wrap">
+        <img
+          src="img/JPMorganPortrait.jpg"
+          alt="J. Pierpont Morgan, circa 1907"
+          class="article-hero-img"
+          style="object-position: center 20%;"
+        />
+        <div class="article-hero-overlay"></div>
+      </div>
+
+      <div class="article-hero-content">
+        <div class="article-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="stories.html">Stories</a>
+          <span aria-hidden="true">›</span>
+          <span>Gilded Age</span>
+        </div>
+
+        <div class="article-hero-tags">
+          <span class="tag tag--era">Gilded Age · 1907</span>
+          <span class="tag">Business &amp; Industry</span>
+          <span class="tag">Finance</span>
+        </div>
+
+        <h1 class="article-hero-title">
+          The Man Who<br />
+          <em>Locked the Door</em>
+        </h1>
+
+        <div class="article-hero-meta">
+          <span class="article-meta-item">
+            <svg class="meta-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M8 4.5v3.75l2.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+            22 min read
+          </span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">Published April 5, 2026</span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">By <a href="#">Lovie Project Studio</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE LAYOUT
+    ============================================================ -->
+    <div class="article-layout">
+
+      <!-- ── Sticky Sidebar ───────────────────────────────────── -->
+      <aside class="article-sidebar">
+
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-label">In this story</p>
+          <ol class="toc-list">
+            <li><a href="#section-solitaire" class="toc-link">The Solitaire Player</a></li>
+            <li><a href="#section-copper" class="toc-link">The Copper That Broke a City</a></li>
+            <li><a href="#section-runs" class="toc-link">Borough by Borough, the Runs Spread</a></li>
+            <li><a href="#section-library" class="toc-link">The Solitaire General</a></li>
+            <li><a href="#section-institution" class="toc-link">The Institution That Replaced the Man</a></li>
+          </ol>
+        </nav>
+
+        <div class="sidebar-share">
+          <p class="toc-label">Share</p>
+          <div class="share-links">
+            <a href="#" class="share-link" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.726-8.84L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── Article Body ──────────────────────────────────────── -->
+      <article class="article-body">
+
+        <!-- Historical Context Box -->
+        <div class="context-box">
+          <p class="context-box-eyebrow">Historical Context</p>
+          <p>
+            In October 1907, the United States had no central bank. There was no Federal
+            Reserve, no government mechanism to inject liquidity into a failing financial
+            system. When a wave of bank runs threatened to collapse New York's trust
+            companies and bring the economy to a halt, one aging private citizen stepped
+            into the vacuum — and held the line by sheer force of personality, calculation,
+            and a locked door.
+          </p>
+        </div>
+
+        <!-- ── Section 1 ──────────────────────────────────────── -->
+        <p class="article-lede" id="section-solitaire">
+          The cards felt cool in J. Pierpont Morgan's hands — old paper, worn silk
+          backing. He laid them out on the mahogany table in his private study, each
+          card a small negotiation with chance. Outside the study door, men were
+          shouting. Outside, the city was burning through its last reserves of faith.
+          But here, in the amber light of his library at midnight on November 3, Morgan
+          played solitaire as though the world beyond these walls was someone else's
+          problem.
+        </p>
+
+        <p>
+          His preferred game was Miss Milligan, a double-pack patience that required
+          not luck so much as vision — the ability to see, three moves ahead, which
+          cards must be held and which released. A man who could read the small
+          mathematics of patience could read the larger mathematics of markets. And so,
+          while forty trust company presidents argued in circles in the rooms beyond
+          his study, Morgan turned cards and calculated. His mind was not idle. His mind
+          was a weapon. And it was the only thing standing between the American economy
+          and oblivion.
+        </p>
+
+        <p>The bankers did not yet know the doors were locked.</p>
+
+        <!-- ── Section 2 ──────────────────────────────────────── -->
+        <h2 class="article-section-heading" id="section-copper">The Copper That Broke a City</h2>
+
+        <p>
+          It had begun, as financial catastrophes so often do, with a man who believed
+          he was smarter than the market.
+        </p>
+
+        <p>
+          F. Augustus Heinze had once been the king of Montana copper — a man who bent
+          mountains to his will, who left school at sixteen and returned to Butte as an
+          engineer-turned-titan by thirty. By the autumn of 1907, he was 38 years old
+          and certain that his genius had only sharpened. On the New York Stock Exchange,
+          surrounded by men he considered his inferiors, he would prove it. The scheme
+          was elegant in its simplicity: corner United Copper Company stock. Buy enough
+          shares to control the float, then force short sellers to purchase from him at
+          whatever price he named. His confidence was absolute. What he didn't know was
+          that October 14, 1907, would be the last day anyone would ever fear him.
+        </p>
+
+        <p>
+          By October 16, United Copper had collapsed from approximately $60 per share
+          to $10. The shorts had found shares elsewhere. The corner had failed. Heinze
+          was finished — but his failure was only the first domino.
+        </p>
+
+        <p>
+          The State Savings Bank of Butte, Montana, closely tied to Heinze's network,
+          announced insolvency. Then came the press reports, the whispers, the connections
+          drawn in the financial pages: Charles T. Barney, president of the Knickerbocker
+          Trust Company — the third-largest trust in New York City — had been associated
+          with Heinze's circle. Barney had not participated in the copper scheme. But in
+          a panic, proximity is guilt enough.
+        </p>
+
+        <p>On the morning of October 22, the run began.</p>
+
+        <blockquote class="pull-quote">
+          <p>"As fast as a depositor went out of the place ten people and more came asking for their money."</p>
+          <cite>The New York Times, October 22, 1907</cite>
+        </blockquote>
+
+        <p>
+          On the corner of Fifth Avenue and 34th Street, Mrs. Eleanor Pritchard stood
+          in line outside the Knickerbocker's marble entrance. She had arrived before
+          seven o'clock, her small reticule containing $400 — every penny she had saved
+          over fifteen years of widow's work as a seamstress. The woman ahead of her
+          wept silently. The woman behind her fanned herself, breathing in short gasps.
+          By eight o'clock, the line stretched around the block. By nine, the police
+          had been called to maintain order.
+        </p>
+
+        <p>
+          Eleanor's hands trembled. She had seen bank failures before, in the panic of
+          '93. She knew how these ended. The teller's window would close. The doors would
+          lock. And everything she had would be gone.
+        </p>
+
+        <p>
+          By noon, the Knickerbocker had paid out $8 million in three hours. The
+          institution's vaults were hemorrhaging. At 12:30 in the afternoon, the bank
+          suspended operations. The doors closed. Eleanor, standing in line with her
+          $400, had been sixteen people from the window.
+        </p>
+
+        <p>
+          Charles T. Barney, forced to resign four days earlier, would be dead by suicide
+          within three weeks. Eleanor Pritchard would live another forty years, renting
+          rooms and working as a seamstress, her life a portrait of one woman's encounter
+          with the invisible machinery of financial collapse.
+        </p>
+
+        <!-- ── Section 3 ──────────────────────────────────────── -->
+        <h2 class="article-section-heading" id="section-runs">Borough by Borough, the Runs Spread</h2>
+
+        <p>
+          The Knickerbocker was a domino. The question was how many would fall behind it.
+        </p>
+
+        <p>
+          That same evening — October 22 — Morgan convened a war council at his library:
+          George F. Baker, president of First National Bank; James Stillman, president
+          of National City Bank; and Treasury Secretary George B. Cortelyou, who had
+          come from Washington with a federal checkbook and the willingness to use it.
+          Cortelyou pledged to deposit government funds across New York's solvent banks.
+          Morgan dispatched a young banker named Benjamin Strong to examine
+          Knickerbocker's books and determine whether the trust could be saved.
+        </p>
+
+        <p>
+          Strong worked through the night and into the next day. His verdict was
+          devastating: the trust's solvency was uncertain. Morgan made the calculation
+          in seconds. To spend a single dollar on a failing institution was to rob a
+          dollar from one that could survive. He declined to extend credit. He would let
+          Knickerbocker fall.
+        </p>
+
+        <p>
+          It was the hardest decision of the crisis — and perhaps the right one. But
+          the choice sent its own signal to a city already running on fear: <em>No one
+          is safe.</em>
+        </p>
+
+        <p>
+          The runs moved like fire through a tenement block. The Trust Company of
+          America, the second-largest trust in New York, began losing deposits on
+          October 23. By day's end, it had lost $8 million. Morgan arranged an emergency
+          loan of $8.25 million to keep it open. On October 24, the NYSE itself nearly
+          collapsed — there was simply no cash left on the trading floor to settle
+          transactions. Morgan convened bank presidents in his library, extracted pledges
+          totaling $23.6 million, and kept the exchange open through the closing bell.
+        </p>
+
+        <p>
+          By the last week of October, the panic had spread across the boroughs. The
+          First National Bank of Brooklyn, the Williamsburg Trust, the Borough Bank,
+          the Jenkins Trust — all under pressure. Providence reported runs. Philadelphia
+          reported runs. Pittsburgh reported runs. New York City itself, unable to sell
+          its bonds in the collapsed market, was within weeks of defaulting on its
+          own obligations.
+        </p>
+
+        <blockquote class="pull-quote pull-quote--alt">
+          <p>On October 29, Morgan organized a syndicate to purchase $30 million in municipal bonds at par. He saved the city.</p>
+        </blockquote>
+
+        <p>
+          Washington stayed largely silent. President Theodore Roosevelt was deep in an
+          antitrust philosophy that made him uncomfortable with Morgan's concentrated
+          power. The Treasury secretary, for all his helpfulness, had no formal legal
+          mechanism to inject capital at scale. The machinery of government watched from
+          a distance as one man held the line.
+        </p>
+
+        <!-- ── Section 4 ──────────────────────────────────────── -->
+        <h2 class="article-section-heading" id="section-library">The Solitaire General</h2>
+
+        <p>
+          By Saturday, November 2, a new crisis had surfaced: Moore &amp; Schley, a
+          prominent brokerage firm with $50 million in bonds issued by Tennessee Coal,
+          Iron &amp; Railroad, was near failure. Its collapse would drag other
+          institutions with it — a cascade that would break the trust companies all over
+          again. Morgan convened a Saturday morning conference. By that evening, he had
+          summoned forty to fifty bankers to the library at 36th Street and Madison.
+        </p>
+
+        <p>
+          The scene that assembled inside the Morgan Library that night would have been,
+          to any observer from the future, almost incomprehensible. In the East Room —
+          lined with Flemish tapestries, Renaissance bronzes, and first editions from
+          another century — clearinghouse bank presidents gathered around a long table.
+          In the West Room, trust company executives occupied chairs arranged in
+          formation. Morgan moved between rooms like a general surveying a battlefield.
+          Then he withdrew to his study.
+        </p>
+
+        <p>And played cards.</p>
+
+        <!-- Inline image — Morgan Library -->
+        <figure class="article-figure">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/PierpontMorganLibrary_Reading_Room.jpg/1280px-PierpontMorganLibrary_Reading_Room.jpg"
+            alt="The East Room of the Morgan Library, New York — site of the November 1907 crisis meetings"
+            class="article-img"
+            loading="lazy"
+          />
+          <figcaption class="article-caption">
+            The East Room of the Morgan Library, 36th Street and Madison Avenue, New York City —
+            where Morgan convened the trust company presidents on the night of November 2–3, 1907.
+            <span class="caption-source">Wikimedia Commons / Morgan Library &amp; Museum</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          Jean Strouse, in her landmark biography, reconstructed the habit from
+          contemporaneous accounts. The game was a form of discipline — not escape, but
+          method. While forty trust presidents fought like children over whether to
+          contribute $25 million they didn't have, Morgan turned cards and read patterns.
+          His mind was not distracted. It was working.
+        </p>
+
+        <p>
+          Around midnight, the situation clarified. Morgan announced the amount: $25
+          million from the trust companies — not from the clearinghouse banks, who had
+          already contributed. The trust presidents balked. The sum was enormous. They
+          had not caused this crisis. Why should they pay to end it?
+        </p>
+
+        <p>
+          The conversation continued. The hours passed. Outside, the city slept. Inside,
+          Morgan's library had become something else entirely: a pressure chamber, a
+          negotiation, a test of will.
+        </p>
+
+        <p>
+          At some point — later accounts differ on exactly when — one of the trust
+          company presidents moved toward the front door to leave. He was done. He had
+          contributed what his conscience allowed. The others could negotiate themselves
+          to hell.
+        </p>
+
+        <p>
+          He pulled on the brass door handle. Nothing happened. He pulled again, harder,
+          his knuckles whitening against the metal. The door was locked. A moment of
+          suspended silence spread through the adjoining rooms like a spill of water.
+          One man turned to another. The word moved through the library in whispers:
+          <em>Locked. Morgan locked the door.</em>
+        </p>
+
+        <p>
+          No one approached Morgan directly. No one needed to. The message was absolute:
+          <em>You do not leave this room until the work is finished.</em>
+        </p>
+
+        <blockquote class="pull-quote">
+          <p>Time had become a weapon. And Morgan knew how to use it.</p>
+        </blockquote>
+
+        <p>
+          As the hours passed — one o'clock, two o'clock, the darkness absolute outside
+          the library windows — the bankers understood what was happening. Morgan had
+          imprisoned them. The most powerful financial figures in America, trapped in a
+          Renaissance palazzo at 36th Street while the clock moved toward morning. By
+          three o'clock, some 120 bank and trust officials had assembled in those rooms,
+          packed into salons lit by gas lamps and electric fixtures, the air growing
+          thick with tobacco smoke and exhaustion.
+        </p>
+
+        <p>
+          By 3:15 AM, the windows of the Morgan Library had begun to show the first pale
+          suggestion of dawn. Somewhere in the city, workers were already moving. The
+          printing presses of newspapers were warming. In a few hours, the NYSE would
+          open. If these men left this room without an agreement, thousands of telegrams
+          would spread the news across the country before noon: <em>The bankers have
+          failed. Save yourself.</em> Every run in every city would become a sprint
+          toward oblivion.
+        </p>
+
+        <p>
+          Parallel to the trust company crisis, Morgan's associates were brokering the
+          acquisition of Tennessee Coal, Iron &amp; Railroad by U.S. Steel — a mechanism
+          that would absorb Moore &amp; Schley's debt and give the brokerage a path out
+          of collapse. Emissaries reached President Roosevelt before dawn. They obtained
+          his antitrust blessing before the NYSE opened for Monday trading.
+        </p>
+
+        <p>
+          Benjamin Strong, who had spent those weeks in what he later described as "the
+          endless incidents, some tragic, some humorous, many of them exciting or
+          depressing, which characterized those weeks of strain and anxiety," understood
+          better than most what was happening in those rooms. One man was building,
+          through sheer force of will, the rescue that governments could not or would
+          not arrange.
+        </p>
+
+        <p>
+          At approximately 4:45 in the morning, Morgan walked into the room where the
+          trust company presidents had spent hours refusing to sign. His face showed
+          nothing. His voice showed nothing. He stated, simply, what was required: the
+          amount, the deadline, the fact of the situation. Their unofficial leader signed.
+          The others followed.
+        </p>
+
+        <p>
+          <em>"Gentlemen, we will now sign"</em> — the words widely attributed to Morgan
+          in the aftermath, though the precise originating source has not been definitively
+          confirmed. Whether he said them exactly or not, the meaning was the same:
+          It is over. You have lost. I have won.
+        </p>
+
+        <!-- ── Section 5 ──────────────────────────────────────── -->
+        <h2 class="article-section-heading" id="section-institution">The Institution That Replaced the Man</h2>
+
+        <p>
+          The sun came up on November 4, 1907, and the crisis was effectively resolved.
+          The runs slowed. Then stopped. The stock exchange did not collapse. New York
+          City did not default. The panic that had threatened to become a depression
+          subsided into recession, which ended by May 1908.
+        </p>
+
+        <p>
+          Charles T. Barney was already buried. Eleanor Pritchard returned to her
+          seamstress work, her $400 lost forever. F. Augustus Heinze was ruined. And
+          J. Pierpont Morgan, 70 years old, had single-handedly prevented the collapse
+          of the American financial system.
+        </p>
+
+        <p>That was the problem.</p>
+
+        <p>
+          George Perkins, Morgan's own partner at J.P. Morgan &amp; Co., put it plainly:
+          "Mr. Morgan was able to do what he did in that panic because of the man and
+          his personality, and because people believed in him." But what happened when
+          the man was gone? What happened to the next panic, when there was no Morgan?
+        </p>
+
+        <!-- Portrait image, right-floated -->
+        <figure class="article-figure article-figure--right">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Benjamin_Strong_1922.jpg/640px-Benjamin_Strong_1922.jpg"
+            alt="Benjamin Strong, first Governor of the Federal Reserve Bank of New York"
+            class="article-img"
+            loading="lazy"
+          />
+          <figcaption class="article-caption">
+            Benjamin Strong, who watched Morgan hold the system together in 1907,
+            became the first Governor of the Federal Reserve Bank of New York in 1914.
+            <span class="caption-source">Library of Congress</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          Jean Strouse captured the nation's response with equal precision: "The exercise
+          of that much power by one private citizen horrified a nation of democrats and
+          revived America's long-standing distrust of concentrated wealth." The Pujo
+          Committee, investigating the money trust in 1912, would reveal that
+          Morgan-affiliated officers sat on the boards of corporations representing
+          $22.5 billion of the $26.5 billion total NYSE capitalization. The library at
+          36th Street had become visible as what it had always been: the operational
+          center of American finance.
+        </p>
+
+        <p>
+          Congress drew the institutional conclusion. In November 1910, a secret
+          gathering on Jekyll Island, Georgia — Senator Nelson Aldrich, Paul Warburg,
+          Frank Vanderlip, and Benjamin Strong among them — drafted the framework for a
+          central bank. Strong, who had spent those sleepless weeks in 1907 watching
+          Morgan hold the system together by force of personality alone, became the
+          first Governor of the Federal Reserve Bank of New York, the institution's
+          dominant voice until his death in 1928.
+        </p>
+
+        <p>
+          On December 23, 1913, President Woodrow Wilson signed the Federal Reserve Act
+          into law.
+        </p>
+
+        <p>
+          By then, the key was no longer in any man's pocket. It had been forged into
+          law. The Morgan Library's carved ceilings would remain — a reminder of the
+          moment when private power saved the republic it was not meant to save, and
+          forced the nation to finally build the institutions that could. The locked
+          library door was the argument. The Federal Reserve was the answer. One private
+          citizen should never again need to pocket that key.
+        </p>
+
+        <!-- Fact vs. Dramatization editorial note -->
+        <div class="editorial-note">
+          <div class="editorial-note-header">
+            <svg class="editorial-note-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 6v5M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Sources &amp; A Note on Narrative</span>
+          </div>
+          <p>
+            Eleanor Pritchard is a composite figure drawn from documented contemporaneous
+            accounts of depositor runs, used here to give human scale to abstract
+            financial data. All financial figures, dates, names, and institutional
+            details are drawn from the sources listed below. The scene of the locked door
+            is reconstructed from multiple historical accounts, none of which agree
+            precisely on timing; the sequence presented here follows the reconstruction
+            in Strouse (2000). The attribution "Gentlemen, we will now sign" appears in
+            American Heritage (1957) citing Satterlee; its precise origin has not been
+            independently confirmed.
+          </p>
+          <p style="margin-top:0.6rem">
+            <strong>Sources:</strong> Jean Strouse, <em>Morgan: American Financier</em>
+            (Random House, 2000); Federal Reserve Bank of New York, Liberty Street
+            Economics (Nov 2016); Federal Reserve History (federalreservehistory.org);
+            Herbert L. Satterlee, cited in American Heritage, "A Lion in the Street"
+            (June 1957); Morgan Library &amp; Museum Stop 23 audio guide; Gotham Center
+            for NYC History; Wikipedia, Panic of 1907; George Perkins, cited in American
+            Heritage (1957).
+          </p>
+        </div>
+
+      </article>
+    </div>
+
+    <!-- ============================================================
+         RELATED STORIES
+    ============================================================ -->
+    <section class="related-stories">
+      <div class="container">
+        <h2 class="related-title">More from the Gilded Age</h2>
+        <div class="related-grid">
+
+          <article class="card card--story">
+            <a href="article.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=75&auto=format&fit=crop"
+                  alt="Steel mill workers"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Gilded Age · 1870–1900</span>
+              <h3 class="card-title"><a href="article.html">The Men Who Forged Industrial America</a></h3>
+              <p class="card-desc">How Carnegie, Frick, and a generation of risk-takers turned raw iron into economic empire.</p>
+              <a href="article.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="stories.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&q=75&auto=format&fit=crop"
+                  alt="Stock exchange ticker"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Progressive Era · 1900–1920</span>
+              <h3 class="card-title"><a href="stories.html">When Wall Street Was a Wild West</a></h3>
+              <p class="card-desc">Before the SEC, a generation of speculators and reformers invented modern finance in real time.</p>
+              <a href="stories.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="stories.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=600&q=75&auto=format&fit=crop"
+                  alt="Gilded age ballroom"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Gilded Age · 1875–1905</span>
+              <h3 class="card-title"><a href="stories.html">The Ball That Broke a Dynasty</a></h3>
+              <p class="card-desc">Mrs. Astor's final season and the spectacular collapse of American aristocratic ambition.</p>
+              <a href="stories.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark brand-mark--footer">LP</span>
+        <span class="brand-name brand-name--footer">Lovie Project Studio</span>
+        <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="index.html#video">Collections</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p>Inquiries</p>
+        <a href="mailto:info@lovieproject.com">info@lovieproject.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lovie Project Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/article.js"></script>
+</body>
+</html>
