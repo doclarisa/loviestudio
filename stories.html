@@ -103,7 +103,7 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="era" data-filter-value="all">
                   All Eras
-                  <span class="filter-btn-count">12</span>
+                  <span class="filter-btn-count">13</span>
                 </button>
               </li>
               <li>
@@ -121,7 +121,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="era" data-filter-value="gilded-age">
                   Gilded Age
-                  <span class="filter-btn-count">3</span>
+                  <span class="filter-btn-count">4</span>
                 </button>
               </li>
               <li>
@@ -188,7 +188,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="theme" data-filter-value="business-industry">
                   Business &amp; Industry
-                  <span class="filter-btn-count">4</span>
+                  <span class="filter-btn-count">5</span>
                 </button>
               </li>
             </ul>
@@ -214,6 +214,42 @@
           <!-- ── Story Cards ──────────────────────────────────── -->
           <!-- Each card carries data-era and data-theme for JS filtering -->
           <!-- data-date is ISO for sort; lower index = newer -->
+
+          <article class="story-card"
+            data-era="gilded-age"
+            data-theme="business-industry"
+            data-date="2026-04-05">
+            <a href="article-morgan-panic-1907.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="img/JPMorganPortrait.jpg"
+                  alt="J. Pierpont Morgan, circa 1907"
+                  class="story-card-img"
+                  loading="lazy"
+                  style="object-position: center 15%;"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Gilded Age</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article-morgan-panic-1907.html">The Man Who Locked the Door</a>
+              </h2>
+              <p class="story-card-deck">
+                In 1907, with no central bank and no government rescue, J. Pierpont Morgan
+                imprisoned forty bankers in his library and forced them to save the American
+                financial system before dawn.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Apr 5, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">·</span>
+                <span class="story-meta-time">22 min read</span>
+              </div>
+            </div>
+          </article>
 
           <article class="story-card"
             data-era="gilded-age"
@@ -657,7 +693,7 @@
   <footer class="site-footer" id="contact">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="brand-mark brand-mark--footer">LP</span>
+        <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo brand-logo--footer" />
         <span class="brand-name brand-name--footer">Lovie Project Studio</span>
         <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
       </div>

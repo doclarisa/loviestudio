@@ -196,6 +196,11 @@ ul { list-style: none; }
   display: block;
 }
 
+.brand-logo--footer {
+  width: 52px;
+  height: 52px;
+}
+
 .brand-mark {
   width: 38px;
   height: 38px;
