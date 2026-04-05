@@ -1,0 +1,383 @@
+/* ============================================================
+   LOVIE PROJECT STUDIO — About Page Styles
+   Extends styles.css
+   ============================================================ */
+
+.about-page {
+  background: var(--paper);
+}
+
+/* Shared nav active state (reused from stories.css) */
+.nav-active {
+  color: var(--white) !important;
+  position: relative;
+}
+
+.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.about-hero {
+  background: var(--ink);
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.about-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.about-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.about-hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-light);
+}
+
+
+/* ============================================================
+   MANIFESTO SECTION
+============================================================ */
+.about-manifesto {
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.about-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--space-xl);
+  align-items: start;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+
+/* ── Body text ────────────────────────────────────────────── */
+.about-body-text {
+  min-width: 0;
+}
+
+.about-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: var(--space-lg);
+  max-width: 660px;
+}
+
+.about-body-text p {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-md);
+  max-width: 64ch;
+}
+
+.about-body-text p em {
+  font-style: italic;
+}
+
+.about-body-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Pull quote inside body */
+.about-pullquote {
+  border: none;
+  margin: var(--space-xl) 0;
+  padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--gold);
+  background: none;
+}
+
+.about-pullquote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.4rem) !important;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink) !important;
+  line-height: 1.5;
+  max-width: none !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* ── Sidebar ──────────────────────────────────────────────── */
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+}
+
+.about-sidebar-card {
+  background: var(--white);
+  border: 1px solid var(--paper-mid);
+  border-radius: 3px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.sidebar-card-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.sidebar-industry-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-industry-list li {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding-left: 0.9rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.sidebar-industry-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.7rem;
+  top: 0.1em;
+}
+
+
+/* ============================================================
+   MISSION STATEMENT
+============================================================ */
+.about-mission {
+  background: var(--ink);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+}
+
+.about-mission-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-md);
+}
+
+.about-mission-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.005em;
+}
+
+
+/* ============================================================
+   CLOSING SECTION
+============================================================ */
+.about-closing {
+  padding: var(--space-2xl) var(--space-lg);
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+.about-body-grid--closing {
+  grid-template-columns: 1fr;
+  max-width: 680px;
+}
+
+.about-closing-sign {
+  font-family: var(--font-body);
+  font-style: italic !important;
+  color: var(--ink-muted) !important;
+  border-top: 1px solid var(--paper-mid);
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+
+/* ============================================================
+   CONTACT FORM
+============================================================ */
+.about-contact {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--paper-mid);
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.about-contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.about-contact-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-xl);
+  max-width: 480px;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-row--two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--paper-mid);
+  border-radius: 2px;
+  padding: 0.7rem 0.9rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5650' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.65;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--paper-mid);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 148, 42, 0.12);
+}
+
+.btn--form {
+  align-self: flex-start;
+  margin-top: var(--space-sm);
+  padding: 0.85rem 2.25rem;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 900px) {
+  .about-body-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .about-sidebar-card {
+    flex: 1;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row--two {
+    grid-template-columns: 1fr;
+  }
+
+  .about-lede {
+    font-size: 1.15rem;
+  }
+
+  .about-body-text p {
+    font-size: 1rem;
+  }
+}
