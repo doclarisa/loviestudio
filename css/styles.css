@@ -276,11 +276,14 @@ ul { list-style: none; }
 .nav-hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 14px 11px;
+  min-width: 44px;
+  min-height: 44px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
