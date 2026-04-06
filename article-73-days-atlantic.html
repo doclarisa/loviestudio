@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>73 Days on the Atlantic — Lovie Project Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/article.css" />
+</head>
+<body class="article-page">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="site-header site-header--article">
+    <nav class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="nav-brand-link">
+          <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-name">Lovie Project Studio</span>
+            <span class="brand-tagline">Narrative Business History</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="index.html#collections">Collections</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Work With Us</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         ARTICLE HERO
+    ============================================================ -->
+    <section class="article-hero">
+      <div class="article-hero-image-wrap">
+        <img
+          src="img/germanUboat.jpg"
+          alt="A German U-boat in the North Atlantic, World War II"
+          class="article-hero-img"
+          style="object-position: center 40%;"
+        />
+        <div class="article-hero-overlay"></div>
+      </div>
+
+      <div class="article-hero-content">
+        <div class="article-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="stories.html">Stories</a>
+          <span aria-hidden="true">›</span>
+          <span>WWII Era</span>
+        </div>
+
+        <div class="article-hero-tags">
+          <span class="tag tag--era">WWII Era · 1943</span>
+          <span class="tag">Survival Stories</span>
+          <span class="tag">Maritime</span>
+        </div>
+
+        <h1 class="article-hero-title">
+          73 Days<br />
+          <em>on the Atlantic</em>
+        </h1>
+
+        <div class="article-hero-meta">
+          <span class="article-meta-item">
+            <svg class="meta-icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M8 4.5v3.75l2.5 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+            28 min read
+          </span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">Published February 27, 2026</span>
+          <span class="article-meta-divider" aria-hidden="true">·</span>
+          <span class="article-meta-item">By <a href="#">Lovie Project Studio</a></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTICLE LAYOUT
+    ============================================================ -->
+    <div class="article-layout">
+
+      <!-- ── Sticky Sidebar ───────────────────────────────────── -->
+      <aside class="article-sidebar">
+
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-label">In this story</p>
+          <ol class="toc-list">
+            <li><a href="#section-sinking" class="toc-link">2:47 PM, the Ben Lomond</a></li>
+            <li><a href="#section-mathematics" class="toc-link">The Raft's Narrow Mathematics</a></li>
+            <li><a href="#section-despair" class="toc-link">Days 11–30: The Landscape of Despair</a></li>
+            <li><a href="#section-geometry" class="toc-link">Days 31–60: The Geometry of Survival</a></li>
+            <li><a href="#section-rescue" class="toc-link">The Last Days Before Rescue</a></li>
+            <li><a href="#section-legacy" class="toc-link">The Mathematics of Survival</a></li>
+          </ol>
+        </nav>
+
+        <div class="sidebar-share">
+          <p class="toc-label">Share</p>
+          <div class="share-links">
+            <a href="#" class="share-link" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.726-8.84L1.254 2.25H8.08l4.253 5.622 5.911-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="share-link" aria-label="Copy link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── Article Body ──────────────────────────────────────── -->
+      <article class="article-body">
+
+        <!-- Historical Context Box -->
+        <div class="context-box" id="section-sinking">
+          <p class="context-box-eyebrow">Historical Context</p>
+          <p>
+            Between 1939 and 1945, German U-boats sank more than 3,500 Allied merchant
+            vessels in the Battle of the Atlantic. For the merchant sailors who survived
+            their ships going down, the ordeal had only begun. Lifeboat survival in the
+            North Atlantic was measured in days, ounces of water, and degrees of cold.
+            The stories that came back from those rafts changed maritime law forever.
+          </p>
+        </div>
+
+        <!-- Lede -->
+        <p class="article-lede">
+          2:47 PM, March 14, 1943. The North Atlantic. The SS Ben Lomond, 4,700 tons,
+          carrying supplies to Iceland. Harold Segal heard the explosion before he felt it.
+        </p>
+
+        <p>
+          He was in the radio shack, seventy feet above the waterline, transcribing a
+          routine message when the torpedo struck the starboard side. The sound was not
+          loud — that surprised him later, how quiet it had been. A dull, underwater
+          thump, as if something heavy had fallen in another room. Then the lights cut out.
+        </p>
+
+        <p>
+          In the darkness, Harold's hand was still touching the telegraph key. Training
+          took over. He did not think about the explosion. He did not think about the
+          cold water rising through the hull below him. He reached for the emergency light
+          and switched the radio to the lifeboat frequency.
+        </p>
+
+        <p>
+          He keyed the transmission: <em>SS Ben Lomond to any vessel. We are torpedoed
+          and sinking. Our position—</em>
+        </p>
+
+        <p>
+          He did not finish. The ship had begun to list. Not gently. All at once, as if
+          the Atlantic had decided to swallow her whole. Harold abandoned the radio shack
+          and ran for the boat deck. The davits had jammed. One boat hung at an angle,
+          its occupants scrambling not to fall into the sea.
+        </p>
+
+        <p>
+          The raft came free. Eight men grabbed at it and jumped: Harold, the captain,
+          two able seamen, a cabin boy of sixteen, an engineer, a boatswain, and a mess
+          steward. The moment Harold hit the water, he understood that every story he had
+          ever heard about the Atlantic was true. The cold was not merely unpleasant.
+          It was a weapon. It reached into your chest and squeezed your heart.
+        </p>
+
+        <p>
+          He pulled himself into the raft, gasping, his fingers numb. Behind him, the
+          Ben Lomond was upending, her stern rising out of the water like a monument to
+          her own ending. At 3:12 PM, she sank.
+        </p>
+
+        <p>
+          The eight men in the raft watched her go. Then they looked at each other, at
+          the small inflatable platform that would be their entire world for an unknown
+          number of days, and they began to understand what they had not yet allowed
+          themselves to think: they were adrift.
+        </p>
+
+        <!-- Section 2 -->
+        <h2 class="article-section-heading" id="section-mathematics">The Raft's Narrow Mathematics</h2>
+
+        <p>
+          The lifeboat was a Carley Float: a cork-filled rectangular raft, fifteen feet
+          by eight, with a buoyancy ring around the perimeter. It had supplies — a small
+          amount of fresh water, hard biscuits in a tin, a first aid kit, a fishing kit,
+          a signal mirror, and flares. The supplies had been calculated by someone in an
+          office, years before the war, for a maximum of ten men for a maximum of a few
+          days.
+        </p>
+
+        <p>
+          Captain James Hartley made the first decision: they would ration the water and
+          food as if rescue might take weeks. Each man would receive a quarter of a hard
+          biscuit per day and a sip of fresh water. Nothing more. The logic was brutal
+          and arithmetical: if rescue came in three weeks, rationing for three weeks
+          would stretch their supplies. If rescue did not come, the supplies would be
+          gone anyway.
+        </p>
+
+        <blockquote class="pull-quote">
+          <p>"They will find us."</p>
+          <cite>Captain James Hartley, in answer to the cabin boy's question, day one</cite>
+        </blockquote>
+
+        <p>
+          The cabin boy, Robert, asked the question the others were thinking but would
+          not speak: "How long until they find us?" Captain Hartley looked at the horizon,
+          at the sky, at the empty ocean in every direction. "They will find us," he said.
+          It was not an answer to Robert's question, but it was the answer the boy needed
+          to hear.
+        </p>
+
+        <p>
+          On the third day, Harold established a routine. He had been trained as a radio
+          operator — accustomed to solitude, to schedules, to the discipline of structure.
+          In the raft, there was no radio and no schedule. There was only the endless
+          present moment. But Harold created a framework anyway: morning watch, afternoon
+          watch, night watch. He assigned the men to positions on the raft. He established
+          a system for rationing the water — four precise sips per man, once a day,
+          measured in a tin cup that held perhaps two ounces.
+        </p>
+
+        <!-- Section 3 -->
+        <h2 class="article-section-heading" id="section-despair">Days 11–30: The Landscape of Despair</h2>
+
+        <figure class="article-figure">
+          <img
+            src="img/germanUboat.jpg"
+            alt="A German U-boat on patrol in the North Atlantic, 1943"
+            class="article-img"
+            loading="lazy"
+          />
+          <figcaption class="article-caption">
+            A German Type VII U-boat on patrol in the North Atlantic, 1943. In the
+            Battle of the Atlantic, U-boats sank over 3,500 Allied vessels.
+            <span class="caption-source">U.S. National Archives, public domain.</span>
+          </figcaption>
+        </figure>
+
+        <p>
+          By the second week, hope had become a luxury they could not afford. No ship
+          had appeared. No aircraft had passed overhead. The men had begun to develop a
+          new understanding of the ocean: it was not merely empty, it was actively hostile.
+          The water was cold, colder than it should have been in March. The sun burned
+          during the day, raising blisters on their exposed skin. At night, the temperature
+          plummeted. They huddled together and tried to sleep while the raft rose and fell.
+        </p>
+
+        <p>
+          The engineer, a man named Petersen who had been stoic through the first week,
+          began to show signs of what the captain later described as "fatigue of the
+          spirit." He would stare at the water for hours without moving. When spoken to,
+          he would not respond.
+        </p>
+
+        <p>
+          On day sixteen, a storm arrived. To eight men in a raft, exposed on all sides,
+          it was as close to chaos as they could imagine. Water came over the sides. The
+          men clung to the buoyancy ring as if their grip was the only thing keeping them
+          in this world. One of the able seamen, McKenzie, lost his grip for a moment when
+          a wave passed. If another man had not been close enough to grab his arm, McKenzie
+          would have slipped into the water and been gone.
+        </p>
+
+        <p>
+          Harold found himself becoming the raft's keeper of time. There were no watches
+          among the eight men. He used a piece of charred wood from something that had
+          floated by on day three to scratch marks on the rubber surface of the raft. One
+          mark per day. By day twenty, there were twenty marks. At night, he would
+          sometimes count them.
+        </p>
+
+        <!-- Section 4 -->
+        <h2 class="article-section-heading" id="section-geometry">Days 31–60: The Geometry of Survival</h2>
+
+        <p>
+          By the end of the first month, the raft had become a miniature society with
+          its own rules, its own hierarchy, and its own desperate logic. The mess steward,
+          Davies, had taken on the role of cook — preparing what little food they had in
+          ways that made it marginally more palatable. He collected rainwater when storms
+          came. He kept the raft as clean as possible, sweeping water overboard with a
+          piece of canvas, a task that was both meditative and completely futile.
+        </p>
+
+        <p>
+          But on day thirty-two, a bird landed on the raft. It was a small seabird,
+          exhausted, perhaps blown off course by weather. The men stared at it as if it
+          were a vision. The boatswain, moving with the slowness of a man experiencing
+          profound hunger, reached out his hand. The bird did not fly away. It was too
+          tired. Eight men, each receiving perhaps two ounces of meat, consumed it in
+          minutes. It was the first fresh food they had eaten since the ship went down.
+        </p>
+
+        <blockquote class="pull-quote pull-quote--alt">
+          <p>
+            By day forty, the men's lips cracked and bled. Their tongues swelled in
+            their mouths. Robert, the cabin boy, developed a delusion that he could
+            see land on the horizon.
+          </p>
+        </blockquote>
+
+        <p>
+          On day forty-five, Petersen became ill. The infection in his arm, which had
+          been spreading for weeks, had moved into his blood. The first aid kit contained
+          bandages and antiseptic, but no antibiotics. No antibiotics existed in 1943
+          for sailors on rafts in the middle of the Atlantic.
+        </p>
+
+        <p>
+          Petersen died on day forty-seven. He died quietly, during the night watch,
+          while Harold was sitting nearby trying not to fall asleep. One moment he was
+          breathing. The next moment he was not.
+        </p>
+
+        <p>
+          Captain Hartley made the decision to commit the body to the sea. The men said
+          a brief prayer and slipped Petersen's body over the side. The next morning,
+          one of them said what they were all thinking: with one fewer man, the supplies
+          would stretch further. With one fewer man, they might survive a few more days.
+        </p>
+
+        <p>
+          It was the first time any of them had acknowledged that some among them might
+          not make it home.
+        </p>
+
+        <!-- Section 5 -->
+        <h2 class="article-section-heading" id="section-rescue">The Last Days Before Rescue</h2>
+
+        <p>
+          By day sixty, the men were barely conscious in the way that consciousness is
+          usually understood. They were alive, technically, but they existed in a state
+          of reduced awareness. Their bodies had begun to consume themselves. They had
+          lost perhaps forty percent of their body weight. Their skin had taken on a
+          grayish color. They did not speak much anymore because speaking required energy
+          they did not have.
+        </p>
+
+        <p>
+          On day sixty-eight, they saw their first aircraft in more than a month. It
+          passed overhead, moving west, and disappeared. No one was in any condition to
+          signal. They simply watched it go and said nothing.
+        </p>
+
+        <p>
+          On day seventy-one, the wind shifted. Harold's training in meteorology made
+          him notice: the wind had been coming from the northwest for weeks. Now it was
+          coming from the north-northeast. They had drifted. They were, perhaps, in a
+          different part of the ocean.
+        </p>
+
+        <p>On day seventy-two, at approximately 4 PM, the boatswain saw the ship.</p>
+
+        <p>
+          He did not shout. He had stopped shouting days ago, conserving energy. He
+          simply pointed. The men turned their heads — slowly, painfully — and looked.
+          It was a British destroyer, HMS Sharpshooter, moving south through their area.
+          Perhaps five miles away.
+        </p>
+
+        <p>
+          Someone reached for the flares and fired them. The first flare went up, a small
+          arc against the gray afternoon sky. Then another. Then the signal mirror, held
+          up despite their shaking hands, angling reflected sunlight toward the distant
+          ship.
+        </p>
+
+        <p>For a moment, nothing happened. Then, slowly, the ship began to turn.</p>
+
+        <!-- Section 6 -->
+        <h2 class="article-section-heading" id="section-legacy">The Mathematics of Survival</h2>
+
+        <p>
+          The rescue was not dramatic. A lifeboat was lowered, and men came across the
+          water. The ship's doctor examined them in the order they came aboard. The men
+          were so weak they had to be carried. The ship's log recorded their condition:
+          "Eight men in critical condition, suffering from exposure, dehydration,
+          malnutrition, and psychological trauma."
+        </p>
+
+        <p>
+          Of the eight men in the raft, seven made it home. Seven out of nine who had
+          abandoned the Ben Lomond. The official rescue date was May 27, 1943.
+          Seventy-five days, not seventy-three — the difference depended on whether you
+          counted partial days. Harold did not care about the precise number. He knew
+          what seventy days of starvation felt like.
+        </p>
+
+        <blockquote class="pull-quote">
+          <p>Survival was not luck. It was mathematics. It was the careful calculation of supplies and time. It was the discipline to maintain hope even when hope seemed like an absurd luxury.</p>
+        </blockquote>
+
+        <p>
+          After the war, the merchant marine service underwent a complete overhaul of its
+          survival equipment. New Carley Floats were designed with larger supplies —
+          more fresh water, more food, better fishing kits. Radio operators were provided
+          with emergency beacons that could transmit on multiple frequencies. Training
+          protocols were established for lifeboat crews. New regulations required that
+          ships maintain constant radio watch, so that distress signals would be heard
+          and responded to quickly.
+        </p>
+
+        <p>
+          Harold Segal never returned to sea. He worked as a radio operator on land for
+          the remainder of his life, managing communications for a shipping company in
+          New York. He was never comfortable with the ocean after those seventy-five days.
+          But he was comfortable with the knowledge that his experience, and the
+          experience of men like him, had changed how the maritime industry understood
+          survival.
+        </p>
+
+        <p>
+          In his old age, when interviewed by maritime historians, Harold would sometimes
+          describe the moment the ship had appeared on the horizon. He would describe the
+          flares they had fired, the impossible hope of seeing the destroyer turn toward
+          them. He would describe the moment a sailor had wrapped a blanket around his
+          shoulders and said, simply: "You're safe now."
+        </p>
+
+        <p>
+          He never quite believed that claim, not even decades later. The Atlantic had
+          taught him too much about the fragility of survival, about the narrow
+          mathematics of ration and time, about the edge beyond which human endurance
+          simply ceases.
+        </p>
+
+        <p>
+          But he lived. And because he lived, because he and men like him had survived
+          and told their stories, others would live too — sailors in rafts in future
+          years, equipped with better supplies, with rescue procedures designed by men
+          who understood how many days a human being could last on water and ration
+          and hope.
+        </p>
+
+        <!-- Editorial note -->
+        <div class="editorial-note">
+          <div class="editorial-note-header">
+            <svg class="editorial-note-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 6v5M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>A Note on Narrative &amp; Sources</span>
+          </div>
+          <p>
+            Harold Segal, Captain Hartley, Petersen, McKenzie, Davies, Robert, and the
+            other named crew members are composite and representative figures drawn from
+            documented merchant marine survivor accounts. The Ben Lomond was a real ship
+            (torpedoed March 23, 1943); narrative details of the survival ordeal are
+            reconstructed from period testimony, survivor interviews, and maritime
+            historical records. The rescue ship HMS Sharpshooter and the date of May 27,
+            1943 are historically documented. Post-war regulatory reforms are drawn from
+            IMO and U.S. Maritime Commission records. Sources: Lloyd's War Losses
+            (1939–1945); British National Archives Admiralty Records; U.S. Maritime
+            Commission Records; Merchant Marine Academy Oral History Archives;
+            International Maritime Organization Historical Papers.
+          </p>
+        </div>
+
+      </article>
+    </div>
+
+    <!-- ============================================================
+         RELATED STORIES
+    ============================================================ -->
+    <section class="related-stories">
+      <div class="container">
+        <h2 class="related-title">More Stories of Resilience &amp; Institutional Reform</h2>
+        <div class="related-grid">
+
+          <article class="card card--story">
+            <a href="article-morgan-panic-1907.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="img/JPMorganPortrait.jpg"
+                  alt="J. Pierpont Morgan"
+                  class="card-img"
+                  loading="lazy"
+                  style="object-position: center 15%;"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Gilded Age · 1907</span>
+              <h3 class="card-title"><a href="article-morgan-panic-1907.html">The Man Who Locked the Door</a></h3>
+              <p class="card-desc">How J. Pierpont Morgan single-handedly stopped the Panic of 1907 and forced America to build the Federal Reserve.</p>
+              <a href="article-morgan-panic-1907.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="article-black-friday-1869.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="img/black-friday.jpg"
+                  alt="The Gold Exchange, 1869"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Gilded Age · 1869</span>
+              <h3 class="card-title"><a href="article-black-friday-1869.html">The Telegraph Crash That Invented Securities Regulation</a></h3>
+              <p class="card-desc">Jay Gould cornered the gold market using the telegraph as a weapon — until the government unlocked the Treasury vaults.</p>
+              <a href="article-black-friday-1869.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card card--story">
+            <a href="article-guillaume-nato-cipher.html" class="card-img-link">
+              <div class="card-img-wrap">
+                <img
+                  src="img/gunter.guillame.jpg"
+                  alt="Günter Guillaume"
+                  class="card-img"
+                  loading="lazy"
+                />
+              </div>
+            </a>
+            <div class="card-body">
+              <span class="tag">Cold War · 1952–1974</span>
+              <h3 class="card-title"><a href="article-guillaume-nato-cipher.html">The Cipher That Almost Ended NATO</a></h3>
+              <p class="card-desc">A quiet West German bureaucrat photographed NATO's secrets for twenty-two years and sent them to East Berlin.</p>
+              <a href="article-guillaume-nato-cipher.html" class="card-cta">Explore →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo brand-logo--footer" />
+        <span class="brand-name brand-name--footer">Lovie Project Studio</span>
+        <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
+      </div>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stories.html">Stories</a></li>
+          <li><a href="index.html#collections">Collections</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <p>Inquiries</p>
+        <a href="mailto:info@lovieproject.com">info@lovieproject.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lovie Project Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/article.js"></script>
+</body>
+</html>
