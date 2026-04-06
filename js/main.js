@@ -2,34 +2,38 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Mobile nav toggle
-  var hamburger = document.querySelector('.nav-hamburger');
-  var navLinks  = document.querySelector('.nav-links');
+  var btn = document.querySelector('.nav-hamburger');
+  var nav = document.querySelector('.nav-links');
 
-  if (!hamburger || !navLinks) return;
+  if (!btn || !nav) return;
 
-  hamburger.addEventListener('click', function () {
-    var open = navLinks.classList.toggle('is-open');
-    hamburger.setAttribute('aria-expanded', String(open));
+  function toggleNav(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(open));
     document.body.classList.toggle('nav-open', open);
-  });
+  }
 
-  // Close on nav link click (covers anchor links and page navigation)
-  navLinks.querySelectorAll('a').forEach(function (link) {
+  btn.addEventListener('click', toggleNav);
+  btn.addEventListener('touchend', toggleNav);
+
+  // Close on nav link tap
+  nav.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
-      navLinks.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('nav-open');
     });
   });
 
   // Close on outside tap
-  document.addEventListener('click', function (e) {
-    if (navLinks.classList.contains('is-open') &&
-        !navLinks.contains(e.target) &&
-        !hamburger.contains(e.target)) {
-      navLinks.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded', 'false');
+  document.addEventListener('touchend', function (e) {
+    if (nav.classList.contains('is-open') &&
+        !nav.contains(e.target) &&
+        !btn.contains(e.target)) {
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('nav-open');
     }
   });
