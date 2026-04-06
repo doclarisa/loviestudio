@@ -796,6 +796,11 @@ ul { list-style: none; }
   }
 }
 
+/* ── Pure-CSS nav toggle (no JS) ─────────────────────────── */
+.nav-toggle-input {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   :root {
@@ -818,7 +823,7 @@ ul { list-style: none; }
     overflow-y: auto;
   }
 
-  .nav-links.is-open {
+  .nav-toggle-input:checked ~ .nav-links {
     display: flex;
   }
 
@@ -828,6 +833,11 @@ ul { list-style: none; }
 
   .nav-hamburger {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--white);
+    line-height: 1;
   }
 
   .hero {
