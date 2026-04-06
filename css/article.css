@@ -26,6 +26,7 @@
 .article-hero-image-wrap {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 }
 
 .article-hero-img {
@@ -34,6 +35,7 @@
   object-fit: cover;
   object-position: center 35%;
   filter: saturate(0.85) contrast(1.1);
+  pointer-events: none;
 }
 
 .article-hero-overlay {
@@ -46,6 +48,7 @@
     rgba(10, 9, 8, 0.35) 75%,
     rgba(10, 9, 8, 0.2)  100%
   );
+  pointer-events: none;
 }
 
 .article-hero-content {
