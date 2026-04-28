@@ -234,14 +234,17 @@ ul { list-style: none; }
   gap: 0;
   z-index: 10000;
   transform: translateX(100%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s linear 0.3s;
   overflow-y: auto;
-  pointer-events: none;
 }
 
 .nav-links.nav-open {
   transform: translateX(0);
-  pointer-events: auto;
+  visibility: visible;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s linear 0s;
 }
 
 .nav-links a {
@@ -292,6 +295,7 @@ ul { list-style: none; }
     padding: 0;
     background: none;
     transform: none !important;
+    visibility: visible !important;
     transition: none;
     overflow: visible;
   }
