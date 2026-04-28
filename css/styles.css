@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    LOVIE PROJECT STUDIO — Global Styles
    Editorial narrative site, cinematic dark tone
    ============================================================ */
@@ -159,120 +159,83 @@ ul { list-style: none; }
 ============================================================ */
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: var(--nav-height);
-  background: rgba(15, 14, 13, 0.9);
+  top: 0; left: 0; right: 0;
+  height: 62px;
+  z-index: 1000;
+  background: rgba(15, 14, 13, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  pointer-events: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
 .nav-inner {
-  max-width: var(--max-width);
+  max-width: 1200px;
   height: 100%;
-  margin-inline: auto;
-  padding-inline: var(--space-lg);
+  margin: 0 auto;
+  padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-lg);
 }
 
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  flex-shrink: 0;
+  text-decoration: none;
 }
 
 .brand-logo {
   width: 38px;
   height: 38px;
   object-fit: contain;
-  flex-shrink: 0;
-  display: block;
-}
-
-.brand-logo--footer {
-  width: 52px;
-  height: 52px;
-}
-
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  background: var(--gold);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
 }
 
 .brand-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--white);
-  line-height: 1.2;
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .brand-tagline {
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  display: block;
+  color: #999;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
 }
 
+/* Desktop nav */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
-  font-family: var(--font-ui);
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
   font-size: 0.83rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.15s;
   text-transform: uppercase;
+  transition: color 0.15s;
 }
 
-.nav-links a:hover {
-  color: var(--white);
-}
+.nav-links a:hover { color: #fff; }
 
 .nav-cta {
-  background: var(--gold) !important;
-  color: var(--white) !important;
-  padding: 0.4rem 1rem !important;
+  background: #C9A84C !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem;
   border-radius: 2px;
-  letter-spacing: 0.05em !important;
-  transition: background 0.15s !important;
 }
 
-.nav-cta:hover {
-  background: var(--gold-light) !important;
-}
-
+/* Hamburger — hidden on desktop */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -281,23 +244,18 @@ ul { list-style: none; }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 14px 11px;
+  padding: 10px;
   min-width: 44px;
   min-height: 44px;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  -webkit-user-select: none;
-  pointer-events: auto;
 }
 
 .nav-hamburger span {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--white);
+  background: #fff;
   border-radius: 1px;
-  transition: all 0.2s;
+  transition: all 0.25s;
 }
 
 
@@ -796,55 +754,12 @@ ul { list-style: none; }
   }
 }
 
-/* Tablet nav: switch to hamburger at 768px */
-@media (max-width: 768px) and (min-width: 681px) {
-  .brand-tagline {
-    display: none;
-  }
-}
-
-/* ── Pure-CSS nav toggle (no JS) ─────────────────────────── */
-.nav-toggle-input {
-  display: none;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   :root {
     --nav-height: 62px;
-  }
-
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 14, 13, 0.98);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    z-index: 99;
-    overflow-y: auto;
-  }
-
-  .nav-toggle-input:checked ~ .nav-links {
-    display: flex;
-  }
-
-  .nav-links a {
-    font-size: 1.1rem;
-  }
-
-  .nav-hamburger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: var(--white);
-    line-height: 1;
   }
 
   .hero {
@@ -872,14 +787,25 @@ ul { list-style: none; }
   }
 }
 
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
 
-/* Prevent scroll when mobile nav is open */
-body.nav-open {
-  overflow: hidden;
-  touch-action: none;
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 62px; left: 0; right: 0; bottom: 0;
+    background: rgba(15,14,13,0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 999;
+  }
+
+  .nav-links.nav-open { display: flex; }
+
+  .nav-links a { font-size: 1.2rem; }
 }
-
-
 /* ============================================================
    SCROLL REVEAL (progressive enhancement)
 ============================================================ */
