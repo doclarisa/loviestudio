@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=15" />
+  <link rel="stylesheet" href="css/styles.css?v=16" />
   <link rel="stylesheet" href="css/article.css?v=3" />
 </head>
 <body class="article-page">
@@ -21,7 +21,7 @@
         <span class="brand-tagline">Narrative Business History</span>
       </div>
     </a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="navMenuToggle(this)">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
@@ -520,38 +520,43 @@
   </footer>
 
   <script>
-  (function () {
-    var btn = document.querySelector('.nav-hamburger');
+  function navMenuClose() {
     var nav = document.querySelector('.nav-links');
-    if (!btn || !nav) return;
-    var backdrop = document.createElement('div');
-    backdrop.className = 'nav-backdrop';
-    document.body.appendChild(backdrop);
-    function openMenu() {
+    var btn = document.querySelector('.nav-hamburger');
+    var bd  = document.getElementById('nav-bd');
+    if (nav) nav.classList.remove('nav-open');
+    if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
+    if (bd)  bd.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function navMenuToggle(btn) {
+    var nav = document.querySelector('.nav-links');
+    if (!nav) return;
+    var opening = !nav.classList.contains('nav-open');
+    if (opening) {
       nav.classList.add('nav-open');
-      backdrop.classList.add('is-visible');
       btn.classList.add('is-open');
-      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-expanded','true');
       document.body.style.overflow = 'hidden';
+      var bd = document.getElementById('nav-bd');
+      if (!bd) {
+        bd = document.createElement('div');
+        bd.id = 'nav-bd';
+        bd.className = 'nav-backdrop';
+        bd.onclick = navMenuClose;
+        document.body.appendChild(bd);
+      }
+      bd.style.display = 'block';
+    } else {
+      navMenuClose();
     }
-    function closeMenu() {
-      nav.classList.remove('nav-open');
-      backdrop.classList.remove('is-visible');
-      btn.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-    btn.addEventListener('click', function () {
-      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
-    });
-    backdrop.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-    document.querySelectorAll('.nav-links a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-  }());
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') navMenuClose();
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', navMenuClose);
+  });
   </script>
   <script src="js/article.js"></script>
 </body>
