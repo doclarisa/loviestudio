@@ -165,10 +165,20 @@ ul { list-style: none; }
   z-index: 100;
   height: var(--nav-height);
   background: rgba(15, 14, 13, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: auto;
+}
+
+/* backdrop-filter on pseudo-element avoids Chrome bug where
+   backdrop-filter on the element traps position:fixed children */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .nav-inner {
