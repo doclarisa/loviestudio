@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=16" />
+  <link rel="stylesheet" href="css/styles.css?v=17" />
 </head>
 <body>
 
@@ -367,6 +367,13 @@
   </footer>
 
   <script>
+  /* DEBUG BAR — remove once drawer is confirmed working */
+  var _dbg = document.createElement('div');
+  _dbg.id = 'nav-dbg';
+  _dbg.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#c00;color:#fff;padding:6px 10px;font:13px/1.4 monospace;z-index:99999;';
+  _dbg.textContent = 'JS OK | btn:' + (document.querySelector('.nav-hamburger') ? 'Y' : 'N') + ' nav:' + (document.querySelector('.nav-links') ? 'Y' : 'N');
+  document.body.appendChild(_dbg);
+
   function navMenuClose() {
     var nav = document.querySelector('.nav-links');
     var btn = document.querySelector('.nav-hamburger');
@@ -375,10 +382,12 @@
     if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
     if (bd)  bd.style.display = 'none';
     document.body.style.overflow = '';
+    document.getElementById('nav-dbg').textContent = 'CLOSED';
   }
   function navMenuToggle(btn) {
+    document.getElementById('nav-dbg').textContent = 'TOGGLE CALLED';
     var nav = document.querySelector('.nav-links');
-    if (!nav) return;
+    if (!nav) { document.getElementById('nav-dbg').textContent = 'NO NAV FOUND'; return; }
     var opening = !nav.classList.contains('nav-open');
     if (opening) {
       nav.classList.add('nav-open');
@@ -394,6 +403,7 @@
         document.body.appendChild(bd);
       }
       bd.style.display = 'block';
+      document.getElementById('nav-dbg').textContent = 'OPEN — nav-open class added, transform should be 0';
     } else {
       navMenuClose();
     }
