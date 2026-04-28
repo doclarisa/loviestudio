@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
   var btn = document.querySelector('.nav-hamburger');
   var nav = document.querySelector('.nav-links');
   if (!btn || !nav) return;
@@ -38,4 +38,4 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     link.addEventListener('click', closeMenu);
   });
-});
+}());
