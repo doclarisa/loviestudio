@@ -797,8 +797,6 @@ ul { list-style: none; }
   }
 }
 
-}
-
 /* Mobile */
 @media (max-width: 768px) {
   :root {
