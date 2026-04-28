@@ -163,9 +163,20 @@ ul { list-style: none; }
   height: 62px;
   z-index: 1000;
   background: rgba(15, 14, 13, 0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+
+/* backdrop-filter on pseudo-element avoids Chrome bug where
+   backdrop-filter on the element breaks position:fixed children */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .nav-inner {
@@ -807,7 +818,7 @@ ul { list-style: none; }
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
-    z-index: 999;
+    z-index: 9999;
   }
 
   .nav-links.nav-open a { font-size: 1.2rem; }
