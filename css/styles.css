@@ -206,11 +206,9 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
-/* Desktop nav */
+/* Nav — mobile-first: hidden until desktop breakpoint */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  display: none;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -235,9 +233,17 @@ ul { list-style: none; }
   border-radius: 2px;
 }
 
-/* Hamburger — hidden on desktop */
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+/* Hamburger — visible only on mobile */
 .nav-hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -247,6 +253,10 @@ ul { list-style: none; }
   padding: 10px;
   min-width: 44px;
   min-height: 44px;
+}
+
+@media (min-width: 769px) {
+  .nav-hamburger { display: none; }
 }
 
 .nav-hamburger span {
@@ -788,10 +798,8 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  .nav-hamburger { display: flex; }
-
-  .nav-links {
-    display: none;
+  .nav-links.nav-open {
+    display: flex;
     position: fixed;
     top: 62px; left: 0; right: 0; bottom: 0;
     background: rgba(15,14,13,0.97);
@@ -802,9 +810,7 @@ ul { list-style: none; }
     z-index: 999;
   }
 
-  .nav-links.nav-open { display: flex; }
-
-  .nav-links a { font-size: 1.2rem; }
+  .nav-links.nav-open a { font-size: 1.2rem; }
 }
 /* ============================================================
    SCROLL REVEAL (progressive enhancement)
