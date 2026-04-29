@@ -813,7 +813,7 @@ ul { list-style: none; }
   }
 
   .nav-links {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -827,12 +827,10 @@ ul { list-style: none; }
     padding: 2rem;
     gap: 2rem;
     z-index: 1001;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
   }
 
   .nav-links.nav-open {
-    transform: translateX(0);
+    display: flex;
   }
 
   .nav-links a {
@@ -841,11 +839,12 @@ ul { list-style: none; }
 
   .nav-hamburger {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-size: 1.4rem;
-    color: var(--white);
-    line-height: 1;
+    align-items: center;
+    gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .hero {
