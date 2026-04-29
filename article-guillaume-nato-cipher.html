@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=21" />
+  <link rel="stylesheet" href="css/styles.css?v=23" />
   <link rel="stylesheet" href="css/article.css?v=3" />
 </head>
 <body class="article-page">
@@ -565,8 +565,8 @@
     var nav = document.querySelector('.nav-links');
     var btn = document.querySelector('.nav-hamburger');
     var bd  = document.getElementById('nav-bd');
-    if (nav) nav.classList.remove('nav-open');
-    if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); }
+    if (nav) { nav.classList.remove('nav-open'); nav.style.pointerEvents = ''; }
+    if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.style.pointerEvents = ''; }
     if (bd)  bd.style.display = 'none';
     document.body.style.overflow = '';
   }
@@ -576,20 +576,23 @@
     if (!nav) return;
     var opening = !nav.classList.contains('nav-open');
     if (opening) {
+      _navLastToggle = Date.now();
       nav.classList.add('nav-open');
       btn.classList.add('is-open');
       btn.setAttribute('aria-expanded','true');
       document.body.style.overflow = 'hidden';
+      btn.style.pointerEvents = 'none';
+      nav.style.pointerEvents = 'none';
+      setTimeout(function() { btn.style.pointerEvents = ''; nav.style.pointerEvents = ''; }, 500);
       var bd = document.getElementById('nav-bd');
       if (!bd) {
         bd = document.createElement('div');
         bd.id = 'nav-bd';
         bd.className = 'nav-backdrop';
         document.body.appendChild(bd);
-        setTimeout(function(){ bd.addEventListener('click', navMenuClose); }, 400);
       }
       bd.style.display = 'block';
-      _navLastToggle = Date.now();
+      setTimeout(function(){ bd.onclick = navMenuClose; }, 500);
     } else {
       navMenuClose();
     }
@@ -601,6 +604,5 @@
     a.addEventListener('click', navMenuClose);
   });
   </script>
-  <script src="js/article.js"></script>
 </body>
 </html>
