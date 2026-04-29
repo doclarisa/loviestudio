@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20" />
+  <link rel="stylesheet" href="css/styles.css?v=21" />
 </head>
 <body>
 
@@ -385,6 +385,7 @@
     document.getElementById('nav-dbg').textContent = 'CLOSED';
   }
   function navMenuToggle(btn) {
+    if (Date.now() - _navLastToggle < 500) return;
     document.getElementById('nav-dbg').textContent = 'TOGGLE CALLED';
     var nav = document.querySelector('.nav-links');
     if (!nav) { document.getElementById('nav-dbg').textContent = 'NO NAV FOUND'; return; }
@@ -403,8 +404,7 @@
         setTimeout(function(){ bd.addEventListener('click', navMenuClose); }, 400);
       }
       bd.style.display = 'block';
-      _navJustOpened = true;
-      setTimeout(function(){ _navJustOpened = false; }, 450);
+      _navLastToggle = Date.now();
       document.getElementById('nav-dbg').textContent = 'OPEN — nav-open class added, transform should be 0';
     } else {
       navMenuClose();

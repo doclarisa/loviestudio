@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20" />
+  <link rel="stylesheet" href="css/styles.css?v=21" />
   <link rel="stylesheet" href="css/article.css?v=3" />
 </head>
 <body class="article-page">
@@ -610,9 +610,9 @@
   </footer>
 
   <script>
-  var _navJustOpened = false;
+  var _navLastToggle = 0;
   function navMenuClose() {
-    if (_navJustOpened) return;
+    if (Date.now() - _navLastToggle < 500) return;
     var nav = document.querySelector('.nav-links');
     var btn = document.querySelector('.nav-hamburger');
     var bd  = document.getElementById('nav-bd');
@@ -622,6 +622,7 @@
     document.body.style.overflow = '';
   }
   function navMenuToggle(btn) {
+    if (Date.now() - _navLastToggle < 500) return;
     var nav = document.querySelector('.nav-links');
     if (!nav) return;
     var opening = !nav.classList.contains('nav-open');
@@ -639,8 +640,7 @@
         setTimeout(function(){ bd.addEventListener('click', navMenuClose); }, 400);
       }
       bd.style.display = 'block';
-      _navJustOpened = true;
-      setTimeout(function(){ _navJustOpened = false; }, 450);
+      _navLastToggle = Date.now();
     } else {
       navMenuClose();
     }
