@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=23" />
+  <link rel="stylesheet" href="css/styles.css?v=24" />
   <link rel="stylesheet" href="css/article.css?v=3" />
 </head>
 <body class="article-page">
@@ -21,7 +21,7 @@
         <span class="brand-tagline">Narrative Business History</span>
       </div>
     </a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" onclick="navMenuToggle(this)">
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
@@ -543,50 +543,56 @@
   </footer>
 
   <script>
-  var _navLastToggle = 0;
-  function navMenuClose() {
-    if (Date.now() - _navLastToggle < 500) return;
-    var nav = document.querySelector('.nav-links');
+  (function () {
     var btn = document.querySelector('.nav-hamburger');
-    var bd  = document.getElementById('nav-bd');
-    if (nav) { nav.classList.remove('nav-open'); nav.style.pointerEvents = ''; }
-    if (btn) { btn.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.style.pointerEvents = ''; }
-    if (bd)  bd.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  function navMenuToggle(btn) {
-    if (Date.now() - _navLastToggle < 500) return;
     var nav = document.querySelector('.nav-links');
-    if (!nav) return;
-    var opening = !nav.classList.contains('nav-open');
-    if (opening) {
-      _navLastToggle = Date.now();
+    if (!btn || !nav) return;
+
+    var bd = document.createElement('div');
+    bd.className = 'nav-backdrop';
+    document.body.appendChild(bd);
+
+    function openMenu() {
       nav.classList.add('nav-open');
-      btn.classList.add('is-open');
-      btn.setAttribute('aria-expanded','true');
-      document.body.style.overflow = 'hidden';
-      btn.style.pointerEvents = 'none';
-      nav.style.pointerEvents = 'none';
-      setTimeout(function() { btn.style.pointerEvents = ''; nav.style.pointerEvents = ''; }, 500);
-      var bd = document.getElementById('nav-bd');
-      if (!bd) {
-        bd = document.createElement('div');
-        bd.id = 'nav-bd';
-        bd.className = 'nav-backdrop';
-        document.body.appendChild(bd);
-      }
       bd.style.display = 'block';
-      setTimeout(function(){ bd.onclick = navMenuClose; }, 500);
-    } else {
-      navMenuClose();
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') navMenuClose();
-  });
-  document.querySelectorAll('.nav-links a').forEach(function(a) {
-    a.addEventListener('click', navMenuClose);
-  });
+
+    function closeMenu() {
+      nav.classList.remove('nav-open');
+      bd.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    var _touched = false;
+
+    /* touchend + preventDefault stops iOS from firing a ghost click afterwards */
+    btn.addEventListener('touchend', function (e) {
+      e.preventDefault();
+      _touched = true;
+      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
+      setTimeout(function () { _touched = false; }, 600);
+    }, { passive: false });
+
+    /* click handles desktop mice; skip if already handled by touch */
+    btn.addEventListener('click', function () {
+      if (_touched) return;
+      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
+    });
+
+    bd.addEventListener('touchend', function (e) { e.preventDefault(); closeMenu(); }, { passive: false });
+    bd.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.nav-links a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }());
   </script>
 </body>
 </html>
