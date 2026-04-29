@@ -167,6 +167,7 @@ ul { list-style: none; }
   background: rgba(15, 14, 13, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   pointer-events: auto;
+  overflow: visible;
 }
 
 /* backdrop-filter on pseudo-element avoids Chrome bug where
@@ -190,6 +191,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
   gap: var(--space-lg);
+  overflow: visible;
 }
 
 .nav-brand {
@@ -321,7 +323,7 @@ ul { list-style: none; }
   display: flex;
   align-items: flex-end;
   padding-bottom: var(--space-2xl);
-  overflow: hidden;
+  overflow: clip;
 }
 
 .hero-image-wrap {
