@@ -721,3 +721,105 @@
   color: var(--ink-muted);
   line-height: 1.6;
 }
+
+
+/* ============================================================
+   FIGURE IMAGE (alias used in article HTML)
+============================================================ */
+.article-figure-img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  display: block;
+}
+
+
+/* ============================================================
+   INSTAGRAM EMBEDS
+============================================================ */
+.article-instagram {
+  margin: var(--space-xl) 0;
+  clear: both;
+}
+
+.article-instagram-caption {
+  font-family: var(--font-ui);
+  font-size: 0.73rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  max-width: 540px;
+}
+
+/* Editorial placeholder for URLs awaiting Larisa review */
+.article-review-note {
+  margin: var(--space-xl) 0;
+  clear: both;
+  max-width: 540px;
+  padding: 1.25rem 1.5rem;
+  background: var(--gold-pale);
+  border: 1px dashed var(--gold);
+  border-radius: 3px;
+}
+
+.article-review-note-label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.article-review-note p {
+  font-family: var(--font-ui) !important;
+  font-size: 0.8rem !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.65 !important;
+  margin-bottom: 0 !important;
+  max-width: none !important;
+}
+
+.article-review-note code {
+  font-size: 0.78rem;
+  background: rgba(0,0,0,0.06);
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+
+/* ============================================================
+   HERO PHOTO CREDIT (Wikimedia attribution overlay)
+============================================================ */
+.article-hero-credit {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.04em;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.article-hero-credit a {
+  color: rgba(255, 255, 255, 0.45);
+  pointer-events: auto;
+}
+
+
+/* ============================================================
+   INLINE IMAGE ATTRIBUTION
+============================================================ */
+.article-image-credit {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  color: rgba(90, 86, 80, 0.5);
+  font-style: italic;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}

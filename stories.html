@@ -98,7 +98,7 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="era" data-filter-value="all">
                   All Eras
-                  <span class="filter-btn-count">14</span>
+                  <span class="filter-btn-count">15</span>
                 </button>
               </li>
               <li>
@@ -140,7 +140,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="era" data-filter-value="modern">
                   Modern
-                  <span class="filter-btn-count">2</span>
+                  <span class="filter-btn-count">3</span>
                 </button>
               </li>
             </ul>
@@ -153,7 +153,7 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="theme" data-filter-value="all">
                   All Themes
-                  <span class="filter-btn-count">12</span>
+                  <span class="filter-btn-count">13</span>
                 </button>
               </li>
               <li>
@@ -183,7 +183,7 @@
               <li>
                 <button class="filter-btn" data-filter-type="theme" data-filter-value="business-industry">
                   Business &amp; Industry
-                  <span class="filter-btn-count">6</span>
+                  <span class="filter-btn-count">7</span>
                 </button>
               </li>
             </ul>
@@ -199,7 +199,7 @@
         <!-- Results bar -->
         <div class="stories-results-bar">
           <p class="stories-results-count" id="results-count">
-            Showing <strong>12</strong> stories
+            Showing <strong>13</strong> stories
           </p>
         </div>
 
@@ -209,6 +209,41 @@
           <!-- ── Story Cards ──────────────────────────────────── -->
           <!-- Each card carries data-era and data-theme for JS filtering -->
           <!-- data-date is ISO for sort; lower index = newer -->
+
+          <article class="story-card"
+            data-era="modern"
+            data-theme="business-industry"
+            data-date="2026-04-30">
+            <a href="article-the-name-on-every-label.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="img/valensole-plateau.jpg"
+                  alt="Lavender fields on the Plateau de Valensole, Proven&#231;e"
+                  class="story-card-img"
+                  loading="lazy"
+                  style="object-position: center 40%;"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Modern Era</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article-the-name-on-every-label.html">The Name on Every Label</a>
+              </h2>
+              <p class="story-card-deck">
+                How a teenager&#8217;s promise at a Proven&#231;al cemetery built one of the most
+                independent French luxury brands of his generation.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">Apr 30, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">&middot;</span>
+                <span class="story-meta-time">12 min read</span>
+              </div>
+            </div>
+          </article>
 
           <article class="story-card"
             data-era="gilded-age"
