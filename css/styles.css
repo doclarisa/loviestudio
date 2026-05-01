@@ -153,6 +153,19 @@ ul { list-style: none; }
   transform: translateY(-1px);
 }
 
+.btn--ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
 
 /* ============================================================
    NAVIGATION
@@ -370,6 +383,16 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
   margin-bottom: var(--space-md);
 }
 
