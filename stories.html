@@ -110,13 +110,19 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="era" data-filter-value="all">
                   All Eras
-                  <span class="filter-btn-count">8</span>
+                  <span class="filter-btn-count">9</span>
                 </button>
               </li>
               <li>
                 <button class="filter-btn" data-filter-type="era" data-filter-value="gilded-age">
                   Gilded Age
                   <span class="filter-btn-count">4</span>
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" data-filter-type="era" data-filter-value="postwar">
+                  Postwar Era
+                  <span class="filter-btn-count">1</span>
                 </button>
               </li>
               <li>
@@ -147,13 +153,13 @@
               <li>
                 <button class="filter-btn is-active" data-filter-type="theme" data-filter-value="all">
                   All Themes
-                  <span class="filter-btn-count">8</span>
+                  <span class="filter-btn-count">9</span>
                 </button>
               </li>
               <li>
                 <button class="filter-btn" data-filter-type="theme" data-filter-value="business-industry">
                   Business &amp; Industry
-                  <span class="filter-btn-count">5</span>
+                  <span class="filter-btn-count">6</span>
                 </button>
               </li>
               <li>
@@ -187,7 +193,7 @@
         <!-- Results bar -->
         <div class="stories-results-bar">
           <p class="stories-results-count" id="results-count">
-            Showing <strong>8</strong> stories
+            Showing <strong>9</strong> stories
           </p>
         </div>
 
@@ -197,6 +203,42 @@
           <!-- ── Story Cards ──────────────────────────────────── -->
           <!-- Each card carries data-era and data-theme for JS filtering -->
           <!-- data-date is ISO for sort; lower index = newer -->
+
+          <article class="story-card"
+            data-era="postwar"
+            data-theme="business-industry"
+            data-date="2026-05-02">
+            <a href="article-what-the-trucker-saw-at-hoboken.html" class="story-card-img-link" tabindex="-1" aria-hidden="true">
+              <div class="story-card-img-wrap">
+                <img
+                  src="img/McLean1957.jpg"
+                  alt="Malcom McLean at a Sea-Land container terminal, late 1950s"
+                  class="story-card-img"
+                  loading="lazy"
+                  style="object-position: center 30%;"
+                />
+              </div>
+            </a>
+            <div class="story-card-body">
+              <div class="story-card-tags">
+                <span class="tag tag--era">Postwar Era</span>
+                <span class="tag tag--theme">Business &amp; Industry</span>
+              </div>
+              <h2 class="story-card-title">
+                <a href="article-what-the-trucker-saw-at-hoboken.html">What the Trucker Saw at Hoboken</a>
+              </h2>
+              <p class="story-card-deck">
+                How a 23-year-old North Carolina truck driver, sitting in his cab on a New
+                Jersey wharf in 1937, dreamed up the system that built global trade &#8212;
+                and gave the patents away.
+              </p>
+              <div class="story-card-meta">
+                <span class="story-meta-date">May 2, 2026</span>
+                <span class="story-meta-dot" aria-hidden="true">&middot;</span>
+                <span class="story-meta-time">18 min read</span>
+              </div>
+            </div>
+          </article>
 
           <article class="story-card"
             data-era="modern"
