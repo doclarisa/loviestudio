@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,10 +20,640 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css?v=31" />
+
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────── */
+    :root {
+      --hp-ink:       #0c0b09;
+      --hp-cream:     #f2ead9;
+      --hp-cream-dim: #c8bfaa;
+      --hp-gold:      #c8a96e;
+      --hp-gold-dim:  #8a6e3e;
+      --hp-muted:     #7a7060;
+      --hp-rule:      rgba(200,169,110,0.22);
+    }
+
+    /* ── Nav transparent-to-frosted override ───────────────────── */
+    .site-header {
+      background: transparent !important;
+      border-bottom-color: transparent !important;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    .site-header::before { opacity: 0; transition: opacity 0.4s ease; }
+    .site-header.hp-scrolled {
+      background: rgba(12,11,9,0.92) !important;
+      border-bottom-color: var(--hp-rule) !important;
+    }
+    .site-header.hp-scrolled::before { opacity: 1; }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hp-hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hp-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img/McLean1957.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.05);
+      animation: hp-zoom 14s ease-out forwards;
+    }
+    @keyframes hp-zoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.00); }
+    }
+    .hp-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(12,11,9,0.97) 0%,
+        rgba(12,11,9,0.70) 38%,
+        rgba(12,11,9,0.25) 68%,
+        rgba(12,11,9,0.45) 100%
+      );
+    }
+    .hp-hero__topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--hp-gold);
+      transform-origin: left;
+      animation: hp-bar 1.3s cubic-bezier(0.22,1,0.36,1) 0.15s both;
+    }
+    @keyframes hp-bar {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+    .hp-hero__content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 860px;
+      padding: 0 48px 88px;
+      animation: hp-fade 1s ease 0.5s both;
+    }
+    @keyframes hp-fade {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hp-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .hp-eyebrow::after {
+      content: '';
+      display: block;
+      flex: 0 0 44px;
+      height: 1px;
+      background: var(--hp-gold);
+    }
+    .hp-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hp-gold);
+    }
+    .hp-label--muted { color: var(--hp-muted); }
+    .hp-hero__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--hp-cream);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+    .hp-hero__title em {
+      font-style: italic;
+      color: var(--hp-gold);
+    }
+    .hp-hero__deck {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--hp-cream-dim);
+      max-width: 560px;
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .hp-hero__meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .hp-hero__meta span {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--hp-muted);
+    }
+    .hp-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--hp-gold-dim);
+      display: inline-block;
+    }
+    .hp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      transition: all 0.22s;
+      text-decoration: none;
+    }
+    .hp-btn--gold { background: var(--hp-gold); color: var(--hp-ink); }
+    .hp-btn--gold:hover { background: var(--hp-cream); color: var(--hp-ink); }
+    .hp-btn--outline {
+      background: transparent;
+      color: var(--hp-cream);
+      border: 1px solid rgba(242,234,217,0.32);
+    }
+    .hp-btn--outline:hover {
+      border-color: var(--hp-gold);
+      color: var(--hp-gold);
+    }
+    .hp-btn svg { transition: transform 0.18s; }
+    .hp-btn:hover svg { transform: translateX(4px); }
+
+    .hp-hero__scroll {
+      position: absolute;
+      bottom: 32px;
+      right: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: hp-fade 1s ease 1.1s both;
+    }
+    .hp-hero__scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--hp-gold), transparent);
+      animation: hp-pulse 2.2s ease-in-out 2s infinite;
+    }
+    @keyframes hp-pulse {
+      0%,100% { opacity: 0.4; transform: scaleY(1); }
+      50%      { opacity: 1;   transform: scaleY(1.15); }
+    }
+    .hp-hero__scroll span {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hp-muted);
+      writing-mode: vertical-rl;
+    }
+
+    /* ── Shared section wrapper ────────────────────────────────── */
+    .hp-section {
+      background: var(--hp-ink);
+      color: var(--hp-cream);
+      padding: 88px 48px;
+    }
+    .hp-section--tight { padding-top: 64px; padding-bottom: 64px; }
+
+    .hp-section__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 44px;
+    }
+    .hp-section__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--hp-cream);
+    }
+    .hp-section__link {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--hp-gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: gap 0.18s;
+    }
+    .hp-section__link:hover { gap: 10px; }
+
+    /* ── Story cards ───────────────────────────────────────────── */
+    .hp-feature-row {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 3px;
+      margin-bottom: 3px;
+    }
+    .hp-stories-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .hp-stacked { display: flex; flex-direction: column; gap: 3px; }
+
+    .hp-card {
+      position: relative;
+      overflow: hidden;
+      background: #151310;
+      display: block;
+      text-decoration: none;
+    }
+    .hp-card__img-wrap { overflow: hidden; position: relative; }
+    .hp-card__img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .hp-card:hover .hp-card__img { transform: scale(1.05); }
+    .hp-card__img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(12,11,9,0.93) 0%,
+        rgba(12,11,9,0.28) 55%,
+        transparent 100%);
+      pointer-events: none;
+    }
+    .hp-card--feature .hp-card__img { height: 580px; }
+    .hp-card--secondary .hp-card__img { height: 287px; }
+    .hp-card--small .hp-card__img { height: 236px; }
+
+    .hp-card__body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 22px 26px;
+      z-index: 2;
+    }
+    .hp-card__tags { display: flex; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .hp-card__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--hp-cream);
+      margin-bottom: 7px;
+      line-height: 1.25;
+      transition: color 0.2s;
+    }
+    .hp-card--feature .hp-card__title { font-size: 1.7rem; }
+    .hp-card:hover .hp-card__title { color: var(--hp-gold); }
+    .hp-card__deck {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.88rem;
+      color: var(--hp-cream-dim);
+      line-height: 1.55;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .hp-card--small .hp-card__deck { display: none; }
+    .hp-card__meta { display: flex; gap: 10px; align-items: center; }
+    .hp-card__meta span {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.07em;
+      color: var(--hp-muted);
+    }
+
+    /* ── Manifesto ─────────────────────────────────────────────── */
+    .hp-manifesto {
+      background: var(--hp-ink);
+      padding: 72px 48px;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+      border-top: 1px solid var(--hp-rule);
+      border-bottom: 1px solid var(--hp-rule);
+    }
+    .hp-manifesto__bar {
+      width: 3px;
+      height: 80px;
+      background: var(--hp-gold);
+      flex-shrink: 0;
+    }
+    .hp-manifesto__quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+      font-style: italic;
+      color: var(--hp-cream);
+      line-height: 1.45;
+      max-width: 700px;
+    }
+    .hp-manifesto__quote strong {
+      font-style: normal;
+      color: var(--hp-gold);
+    }
+
+    /* ── Collections ───────────────────────────────────────────── */
+    .hp-collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .hp-collection {
+      position: relative;
+      overflow: hidden;
+      background: #151310;
+      height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-decoration: none;
+    }
+    .hp-collection__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+      filter: brightness(0.42) sepia(0.28);
+    }
+    .hp-collection:hover .hp-collection__bg {
+      transform: scale(1.06);
+      filter: brightness(0.54) sepia(0.18);
+    }
+    .hp-collection::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(12,11,9,0.95) 0%,
+        rgba(12,11,9,0.28) 60%,
+        transparent 100%);
+    }
+    .hp-collection__body {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+    }
+    .hp-collection__count {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--hp-gold);
+      opacity: 0.28;
+      line-height: 1;
+      margin-bottom: 6px;
+      transition: opacity 0.3s;
+    }
+    .hp-collection:hover .hp-collection__count { opacity: 0.55; }
+    .hp-collection__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--hp-cream);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .hp-collection__desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.88rem;
+      color: var(--hp-cream-dim);
+      line-height: 1.55;
+    }
+
+    /* ── About strip ───────────────────────────────────────────── */
+    .hp-about {
+      background: var(--hp-ink);
+      border-top: 1px solid var(--hp-rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 88px 48px;
+    }
+    .hp-about__heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+      font-weight: 700;
+      color: var(--hp-cream);
+      margin-bottom: 22px;
+      line-height: 1.2;
+    }
+    .hp-about__heading em { font-style: italic; color: var(--hp-gold); }
+    .hp-about__body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1rem;
+      color: var(--hp-cream-dim);
+      line-height: 1.75;
+      margin-bottom: 30px;
+    }
+    .hp-industries {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .hp-industries li {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hp-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hp-industries li::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--hp-gold);
+      flex-shrink: 0;
+    }
+
+    /* ── Newsletter ────────────────────────────────────────────── */
+    .hp-newsletter {
+      background: #0f0e0c;
+      border-top: 1px solid var(--hp-rule);
+      border-bottom: 1px solid var(--hp-rule);
+      padding: 68px 48px;
+      display: flex;
+      align-items: center;
+      gap: 72px;
+    }
+    .hp-newsletter__copy { flex: 1; }
+    .hp-newsletter__heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--hp-cream);
+      margin-bottom: 8px;
+    }
+    .hp-newsletter__sub {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1rem;
+      color: var(--hp-muted);
+    }
+    .hp-newsletter__form {
+      flex: 1;
+      display: flex;
+    }
+    .hp-newsletter__input {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,169,110,0.28);
+      border-right: none;
+      color: var(--hp-cream);
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      padding: 13px 18px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .hp-newsletter__input::placeholder { color: var(--hp-muted); }
+    .hp-newsletter__input:focus { border-color: var(--hp-gold); }
+    .hp-newsletter__btn {
+      background: var(--hp-gold);
+      border: 1px solid var(--hp-gold);
+      color: var(--hp-ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .hp-newsletter__btn:hover { background: var(--hp-cream); border-color: var(--hp-cream); }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    .hp-footer {
+      background: var(--hp-ink);
+      padding: 60px 48px 40px;
+    }
+    .hp-footer__top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--hp-rule);
+      margin-bottom: 28px;
+    }
+    .hp-footer__brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--hp-cream);
+      margin-bottom: 3px;
+    }
+    .hp-footer__brand-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hp-gold);
+      margin-bottom: 14px;
+    }
+    .hp-footer__desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.875rem;
+      color: var(--hp-muted);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+    .hp-footer__col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hp-gold);
+      margin-bottom: 18px;
+    }
+    .hp-footer__links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .hp-footer__links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--hp-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hp-footer__links a:hover { color: var(--hp-cream); }
+    .hp-footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hp-footer__copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--hp-muted);
+    }
+    .hp-footer__email a {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      color: var(--hp-gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hp-footer__email a:hover { color: var(--hp-cream); }
+
+    /* ── Scroll reveal ─────────────────────────────────────────── */
+    .hp-reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .hp-reveal.hp-visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hp-section { padding: 60px 24px; }
+      .hp-hero__content { padding: 0 24px 72px; }
+      .hp-hero__scroll { right: 24px; }
+      .hp-feature-row { grid-template-columns: 1fr; }
+      .hp-card--feature .hp-card__img { height: 420px; }
+      .hp-card--secondary .hp-card__img { height: 260px; }
+      .hp-stories-row { grid-template-columns: 1fr 1fr; }
+      .hp-manifesto { flex-direction: column; gap: 20px; padding: 48px 24px; }
+      .hp-collections-grid { grid-template-columns: 1fr; }
+      .hp-collection { height: 280px; }
+      .hp-about { grid-template-columns: 1fr; gap: 36px; padding: 64px 24px; }
+      .hp-newsletter { flex-direction: column; gap: 28px; padding: 48px 24px; }
+      .hp-footer__top { grid-template-columns: 1fr 1fr; }
+      .hp-footer { padding: 48px 24px 32px; }
+    }
+    @media (max-width: 640px) {
+      .hp-stories-row { grid-template-columns: 1fr; }
+      .hp-footer__top { grid-template-columns: 1fr; }
+      .hp-newsletter__form { flex-direction: column; }
+      .hp-newsletter__input { border-right: 1px solid rgba(200,169,110,0.28); border-bottom: none; }
+      .hp-hero__scroll { display: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
+  <header class="site-header" id="hp-nav">
   <nav class="nav-inner">
     <a href="index.html" class="nav-brand">
       <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo" />
@@ -44,265 +674,359 @@
   </nav>
 </header>
 
-  <main>
-    <div style="height:62px;"></div>
+  <!-- ============================================================
+       HERO — FEATURED STORY
+  ============================================================ -->
+  <section class="hp-hero" aria-label="Featured story">
+    <div class="hp-hero__bg" role="img" aria-label="Malcom McLean at a Sea-Land container terminal"></div>
+    <div class="hp-hero__overlay"></div>
+    <div class="hp-hero__topbar"></div>
 
-    <!-- ============================================================
-         HERO — STUDIO INTRO
-    ============================================================ -->
-    <section class="hero" aria-label="About the Studio">
-      <div class="hero-image-wrap">
-        <img
-          src="img/Archive.png"
-          alt="Stacks of vintage cabinet card portraits from the archive"
-          class="hero-bg-img"
-        />
-        <div class="hero-overlay"></div>
+    <div class="hp-hero__content">
+      <div class="hp-eyebrow">
+        <span class="hp-label">Featured Story</span>
+        <span class="hp-label hp-label--muted">Postwar Era &middot; 1937&ndash;1968</span>
       </div>
 
-      <div class="hero-content">
-        <p class="hero-eyebrow">About the Studio</p>
+      <h1 class="hp-hero__title">
+        What the Trucker <em>Saw&nbsp;at&nbsp;Hoboken</em>
+      </h1>
 
-        <h1 class="hero-title">
-          Business history is the<br />
-          <em>most human story</em> there is.
-        </h1>
-
-        <p class="hero-deck">
-          Lovie Project Studio produces long-form narrative content for brands, founders,
-          and institutions that believe their past is worth telling well. We research,
-          report, and write stories grounded in primary sources — crafted to read like
-          journalism, not marketing.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn--primary">Work With Us</a>
-          <a href="stories.html" class="btn btn--ghost">Read the Stories</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SECTION INTRO
-    ============================================================ -->
-    <div class="section-divider">
-      <p class="section-intro-text">
-        Every company has a past. The most compelling stories a business can tell are not invented — they are recovered.
+      <p class="hp-hero__deck">
+        How a 23-year-old North Carolina truck driver, sitting in his cab on a New Jersey
+        wharf in 1937, dreamed up the system that built global trade &mdash; and gave
+        the patents away.
       </p>
+
+      <div class="hp-hero__meta">
+        <span>18 min read</span>
+        <span class="hp-dot"></span>
+        <span>Published May 2, 2026</span>
+        <span class="hp-dot"></span>
+        <span>Industrial History &middot; Business &amp; Industry</span>
+      </div>
+
+      <a href="article-what-the-trucker-saw-at-hoboken.html" class="hp-btn hp-btn--gold">
+        Read the Story
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
 
-    <!-- ============================================================
-         FEATURE GRID
-    ============================================================ -->
-    <section class="feature-grid-section" id="feature-grid">
-      <div class="container">
-        <div class="feature-grid">
+    <div class="hp-hero__scroll" aria-hidden="true">
+      <div class="hp-hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-          <!-- ── Column 1: Stories ──────────────────────────────── -->
-          <div class="feature-col" id="home">
-            <div class="col-header">
-              <h2 class="col-title">Stories</h2>
-              <a href="stories.html" class="col-see-all">See all →</a>
-            </div>
+  <!-- ============================================================
+       LATEST STORIES
+  ============================================================ -->
+  <section class="hp-section" aria-labelledby="hp-stories-heading">
+    <div class="hp-section__header hp-reveal">
+      <h2 id="hp-stories-heading" class="hp-section__title">Latest Stories</h2>
+      <a href="stories.html" class="hp-section__link">
+        View all
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
 
-            <!-- Story Card — Trucker/Hoboken (newest) -->
-            <article class="card card--story">
-              <a href="article-what-the-trucker-saw-at-hoboken.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/McLean1957.jpg"
-                    alt="Malcom McLean at a Sea-Land container terminal, late 1950s"
-                    class="card-img"
-                    loading="lazy"
-                    style="object-position: center 30%;"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Postwar Era &middot; 1937&#8211;1968</span>
-                <h3 class="card-title">
-                  <a href="article-what-the-trucker-saw-at-hoboken.html">What the Trucker Saw at Hoboken</a>
-                </h3>
-                <p class="card-desc">How a 23-year-old truck driver&#8217;s arithmetic on a New Jersey wharf became the system that moves 90 percent of everything the world trades.</p>
-                <a href="article-what-the-trucker-saw-at-hoboken.html" class="card-cta">Explore &#8594;</a>
-              </div>
-            </article>
+    <!-- Feature row: big left + two stacked right -->
+    <div class="hp-feature-row hp-reveal">
 
-            <!-- Story Card — Jacquemus -->
-            <article class="card card--story">
-              <a href="article-the-name-on-every-label.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/valensole-plateau.jpg"
-                    alt="Lavender fields on the Plateau de Valensole, Proven&#231;e"
-                    class="card-img"
-                    loading="lazy"
-                    style="object-position: center 40%;"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Modern Era &middot; 2009&#8211;2025</span>
-                <h3 class="card-title">
-                  <a href="article-the-name-on-every-label.html">The Name on Every Label</a>
-                </h3>
-                <p class="card-desc">How a teenager&#8217;s promise at a Proven&#231;al cemetery built one of the most independent French luxury brands of his generation.</p>
-                <a href="article-the-name-on-every-label.html" class="card-cta">Explore &#8594;</a>
-              </div>
-            </article>
-
-            <!-- Story Card — Rivet -->
-            <article class="card card--story">
-              <a href="article-rivet-built-industry.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/Miners1870.png"
-                    alt="Miners of the Comstock Lode, Nevada, ca. 1870s"
-                    class="card-img"
-                    loading="lazy"
-                    style="object-position: center 30%;"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Gilded Age · 1873</span>
-                <h3 class="card-title">
-                  <a href="article-rivet-built-industry.html">The Rivet That Built an Industry</a>
-                </h3>
-                <p class="card-desc">How a tailor's letter and a borrowed mining component became the skeleton of the most-worn garment in human history.</p>
-                <a href="article-rivet-built-industry.html" class="card-cta">Explore →</a>
-              </div>
-            </article>
-
-            <!-- Story Card — Guillaume NATO -->
-            <article class="card card--story">
-              <a href="article-guillaume-nato-cipher.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/gunter.guillame.jpg"
-                    alt="Günter Guillaume, Stasi sleeper agent"
-                    class="card-img"
-                    loading="lazy"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Cold War · 1952–1974</span>
-                <h3 class="card-title">
-                  <a href="article-guillaume-nato-cipher.html">The Cipher That Almost Ended NATO</a>
-                </h3>
-                <p class="card-desc">A quiet West German bureaucrat photographed NATO's secrets for twenty-two years and sent them to East Berlin.</p>
-                <a href="article-guillaume-nato-cipher.html" class="card-cta">Explore →</a>
-              </div>
-            </article>
-
-            <!-- Story Card — Black Friday 1869 (newest) -->
-            <article class="card card--story">
-              <a href="article-black-friday-1869.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/black-friday.jpg"
-                    alt="The Gold Exchange, New York City, 1869"
-                    class="card-img"
-                    loading="lazy"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Gilded Age · 1869</span>
-                <h3 class="card-title">
-                  <a href="article-black-friday-1869.html">The Telegraph Crash That Invented Securities Regulation</a>
-                </h3>
-                <p class="card-desc">Jay Gould cornered the gold market using the telegraph as a weapon — until the government unlocked the Treasury vaults.</p>
-                <a href="article-black-friday-1869.html" class="card-cta">Explore →</a>
-              </div>
-            </article>
-
-            <!-- Story Card — Morgan (newest) -->
-            <article class="card card--story">
-              <a href="article-morgan-panic-1907.html" class="card-img-link">
-                <div class="card-img-wrap">
-                  <img
-                    src="img/JPMorganPortrait.jpg"
-                    alt="J. Pierpont Morgan — Panic of 1907"
-                    class="card-img"
-                    loading="lazy"
-                    style="object-position: center 15%;"
-                  />
-                </div>
-              </a>
-              <div class="card-body">
-                <span class="tag">Gilded Age · 1907</span>
-                <h3 class="card-title">
-                  <a href="article-morgan-panic-1907.html">The Man Who Locked the Door</a>
-                </h3>
-                <p class="card-desc">How J. Pierpont Morgan stopped the Panic of 1907 — and forced America to build the Federal Reserve.</p>
-                <a href="article-morgan-panic-1907.html" class="card-cta">Explore →</a>
-              </div>
-            </article>
-
-
-          </div>
-          <!-- /Column 1 -->
-
+      <a href="article-the-name-on-every-label.html" class="hp-card hp-card--feature">
+        <div class="hp-card__img-wrap">
+          <img class="hp-card__img" src="img/valensole-plateau.jpg"
+            alt="Lavender fields on the Plateau de Valensole, Proven&#231;e"
+            loading="lazy" style="object-position:center 40%;" />
         </div>
-        <!-- /feature-grid -->
-      </div>
-    </section>
+        <div class="hp-card__body">
+          <div class="hp-card__tags">
+            <span class="hp-label">Modern Era &middot; 2009&ndash;2025</span>
+            <span class="hp-label hp-label--muted">Business &amp; Industry</span>
+          </div>
+          <h3 class="hp-card__title">The Name on Every Label</h3>
+          <p class="hp-card__deck">How a teenager&#8217;s promise at a Proven&#231;al cemetery built one of the most independent French luxury brands of his generation.</p>
+          <div class="hp-card__meta">
+            <span>Apr 30, 2026</span><span>&middot;</span><span>12 min read</span>
+          </div>
+        </div>
+      </a>
 
-    <!-- ============================================================
-         EDITORIAL CALLOUT — ABOUT THE STUDIO
-    ============================================================ -->
-    <section class="callout-section" id="about">
-      <div class="container container--narrow">
-        <p class="callout-eyebrow">About the Studio</p>
-        <h2 class="callout-headline">
-          Business history is the<br /><em>most human story</em> there is.
-        </h2>
-        <p class="callout-body">
-          Lovie Project Studio produces long-form narrative content for brands, founders,
-          and institutions that believe their past is worth telling well. We research,
-          report, and write stories grounded in primary sources—crafted to read like
-          journalism, not marketing.
-        </p>
-        <a href="#contact" class="btn btn--outline">Work With Us</a>
-      </div>
-    </section>
+      <div class="hp-stacked">
 
-  </main>
+        <a href="article-rivet-built-industry.html" class="hp-card hp-card--secondary">
+          <div class="hp-card__img-wrap">
+            <img class="hp-card__img" src="img/Miners1870.png"
+              alt="Miners of the Comstock Lode, Nevada, ca. 1870s"
+              loading="lazy" style="object-position:center 30%;" />
+          </div>
+          <div class="hp-card__body">
+            <div class="hp-card__tags">
+              <span class="hp-label">Gilded Age &middot; 1873</span>
+            </div>
+            <h3 class="hp-card__title">The Rivet That Built an Industry</h3>
+            <p class="hp-card__deck">How a tailor&#8217;s letter and a borrowed mining component became the skeleton of the most-worn garment in human history.</p>
+            <div class="hp-card__meta">
+              <span>Apr 29, 2026</span><span>&middot;</span><span>8 min</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="article-guillaume-nato-cipher.html" class="hp-card hp-card--secondary">
+          <div class="hp-card__img-wrap">
+            <img class="hp-card__img" src="img/gunter.guillame.jpg"
+              alt="G&#252;nter Guillaume, Stasi sleeper agent"
+              loading="lazy" />
+          </div>
+          <div class="hp-card__body">
+            <div class="hp-card__tags">
+              <span class="hp-label">Cold War &middot; 1952&ndash;1974</span>
+              <span class="hp-label hp-label--muted">Espionage</span>
+            </div>
+            <h3 class="hp-card__title">The Cipher That Almost Ended NATO</h3>
+            <p class="hp-card__deck">A quiet West German bureaucrat photographed NATO&#8217;s secrets for twenty-two years and sent them to East Berlin.</p>
+            <div class="hp-card__meta">
+              <span>Apr 5, 2026</span><span>&middot;</span><span>26 min</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- 3-column row -->
+    <div class="hp-stories-row" style="margin-top:3px;">
+
+      <a href="article-black-friday-1869.html" class="hp-card hp-card--small hp-reveal">
+        <div class="hp-card__img-wrap">
+          <img class="hp-card__img" src="img/black-friday.jpg"
+            alt="The Gold Exchange, New York City, 1869" loading="lazy" />
+        </div>
+        <div class="hp-card__body">
+          <div class="hp-card__tags"><span class="hp-label">Gilded Age &middot; 1869</span></div>
+          <h3 class="hp-card__title">The Telegraph Crash That Invented Securities Regulation</h3>
+          <div class="hp-card__meta"><span>Apr 5, 2026</span><span>&middot;</span><span>24 min</span></div>
+        </div>
+      </a>
+
+      <a href="article-73-days-atlantic.html" class="hp-card hp-card--small hp-reveal">
+        <div class="hp-card__img-wrap">
+          <img class="hp-card__img" src="img/germanUboat.jpg"
+            alt="German U-boat, North Atlantic, WWII"
+            loading="lazy" style="object-position:center 40%;" />
+        </div>
+        <div class="hp-card__body">
+          <div class="hp-card__tags">
+            <span class="hp-label">WWII Era</span>
+            <span class="hp-label hp-label--muted">Survival</span>
+          </div>
+          <h3 class="hp-card__title">73 Days on the Atlantic</h3>
+          <div class="hp-card__meta"><span>Feb 27, 2026</span><span>&middot;</span><span>14 min</span></div>
+        </div>
+      </a>
+
+      <a href="article-morgan-panic-1907.html" class="hp-card hp-card--small hp-reveal">
+        <div class="hp-card__img-wrap">
+          <img class="hp-card__img" src="img/JPMorganPortrait.jpg"
+            alt="J. Pierpont Morgan, circa 1907"
+            loading="lazy" style="object-position:center 15%;" />
+        </div>
+        <div class="hp-card__body">
+          <div class="hp-card__tags">
+            <span class="hp-label">Gilded Age &middot; 1907</span>
+          </div>
+          <h3 class="hp-card__title">The Man Who Locked the Door</h3>
+          <div class="hp-card__meta"><span>Apr 5, 2026</span><span>&middot;</span><span>22 min</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MANIFESTO
+  ============================================================ -->
+  <div class="hp-manifesto hp-reveal">
+    <div class="hp-manifesto__bar" aria-hidden="true"></div>
+    <blockquote class="hp-manifesto__quote">
+      Every company has a past. The most compelling stories a business can tell
+      are not invented &mdash; <strong>they are recovered.</strong>
+    </blockquote>
+  </div>
+
+  <!-- ============================================================
+       COLLECTIONS
+  ============================================================ -->
+  <section class="hp-section hp-section--tight" aria-labelledby="hp-collections-heading">
+    <div class="hp-section__header hp-reveal">
+      <h2 id="hp-collections-heading" class="hp-section__title">Collections</h2>
+      <a href="stories.html" class="hp-section__link">
+        Browse archive
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hp-collections-grid hp-reveal">
+
+      <a href="stories.html" class="hp-collection">
+        <div class="hp-collection__bg" style="background-image:url('https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=800&q=75&auto=format&fit=crop')"></div>
+        <div class="hp-collection__body">
+          <div class="hp-label" style="margin-bottom:10px;">Collection</div>
+          <div class="hp-collection__count">12</div>
+          <h3 class="hp-collection__title">The Robber Barons</h3>
+          <p class="hp-collection__desc">The men who built empires, crushed competitors, and redrew the rules of capitalism in the 19th century.</p>
+        </div>
+      </a>
+
+      <a href="stories.html" class="hp-collection">
+        <div class="hp-collection__bg" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&q=75&auto=format&fit=crop')"></div>
+        <div class="hp-collection__body">
+          <div class="hp-label" style="margin-bottom:10px;">Collection</div>
+          <div class="hp-collection__count">09</div>
+          <h3 class="hp-collection__title">Founding Mothers of Business</h3>
+          <p class="hp-collection__desc">Forgotten pioneers who built companies, wealth, and industries while the history books looked elsewhere.</p>
+        </div>
+      </a>
+
+      <a href="stories.html" class="hp-collection">
+        <div class="hp-collection__bg" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=75&auto=format&fit=crop')"></div>
+        <div class="hp-collection__body">
+          <div class="hp-label" style="margin-bottom:10px;">Collection</div>
+          <div class="hp-collection__count">07</div>
+          <h3 class="hp-collection__title">Surviving the Depression</h3>
+          <p class="hp-collection__desc">Companies that didn&#8217;t just endure the 1930s &mdash; they adapted, innovated, and emerged transformed.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT STRIP
+  ============================================================ -->
+  <div class="hp-about hp-reveal">
+    <div>
+      <div class="hp-label" style="margin-bottom:14px;">About the Studio</div>
+      <h2 class="hp-about__heading">
+        Business history is the <em>most human story</em> there is.
+      </h2>
+      <p class="hp-about__body">
+        Lovie Project Studio produces long-form narrative content for brands, founders,
+        and institutions that believe their past is worth telling well. We research,
+        report, and write stories grounded in primary sources &mdash; crafted to read like
+        journalism, not marketing.
+      </p>
+      <a href="about.html" class="hp-btn hp-btn--outline">
+        Our approach
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 7h12M8 3l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div>
+      <div class="hp-label" style="margin-bottom:18px;">Industries We Serve</div>
+      <ul class="hp-industries">
+        <li>Logistics &amp; Supply Chain</li>
+        <li>Manufacturing</li>
+        <li>Industrial Insurance</li>
+        <li>Chemicals &amp; Materials</li>
+        <li>Finance &amp; Capital Markets</li>
+        <li>Infrastructure &amp; Engineering</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NEWSLETTER
+  ============================================================ -->
+  <div class="hp-newsletter hp-reveal" id="newsletter">
+    <div class="hp-newsletter__copy">
+      <h2 class="hp-newsletter__heading">Get the next story in your inbox.</h2>
+      <p class="hp-newsletter__sub">New narrative every two weeks. No noise &mdash; just history.</p>
+    </div>
+    <form class="hp-newsletter__form" onsubmit="hpHandleSubscribe(event)" aria-label="Newsletter signup">
+      <label for="hp-email" style="position:absolute;left:-9999px;">Email address</label>
+      <input
+        id="hp-email"
+        class="hp-newsletter__input"
+        type="email"
+        placeholder="your@email.com"
+        required
+        autocomplete="email"
+      />
+      <button class="hp-newsletter__btn" type="submit">Subscribe</button>
+    </form>
+  </div>
 
   <!-- ============================================================
        FOOTER
   ============================================================ -->
-  <footer class="site-footer" id="contact">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="img/LPLOGO.png" alt="Lovie Project Studio" class="brand-logo brand-logo--footer" />
-        <span class="brand-name brand-name--footer">Lovie Project Studio</span>
-        <p class="footer-tagline">Narrative nonfiction for brands with history worth telling.</p>
+  <footer class="hp-footer" role="contentinfo" id="contact">
+    <div class="hp-footer__top">
+      <div>
+        <div class="hp-footer__brand-name">Lovie Project Studio</div>
+        <div class="hp-footer__brand-sub">Narrative Business History</div>
+        <p class="hp-footer__desc">
+          Narrative nonfiction for brands with history worth telling. We write the way a
+          knowledgeable colleague talks &mdash; direct, curious, and willing to follow a
+          thread wherever it leads.
+        </p>
       </div>
-      <nav class="footer-nav">
-        <ul>
+      <div>
+        <div class="hp-footer__col-title">Navigate</div>
+        <ul class="hp-footer__links">
           <li><a href="index.html">Home</a></li>
           <li><a href="stories.html">Stories</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="#contact">Work With Us</a></li>
         </ul>
-      </nav>
-      <div class="footer-contact">
-        <p>Inquiries</p>
-        <a href="mailto:info@lovieproject.com">info@lovieproject.com</a>
+      </div>
+      <div>
+        <div class="hp-footer__col-title">Eras</div>
+        <ul class="hp-footer__links">
+          <li><a href="stories.html">Gilded Age</a></li>
+          <li><a href="stories.html">Postwar Era</a></li>
+          <li><a href="stories.html">Cold War</a></li>
+          <li><a href="stories.html">WWII Era</a></li>
+          <li><a href="stories.html">Modern Era</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="hp-footer__col-title">Contact</div>
+        <ul class="hp-footer__links">
+          <li><a href="mailto:info@lovieproject.com">info@lovieproject.com</a></li>
+          <li><a href="#contact">Start a project</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Lovie Project Studio. All rights reserved.</p>
+    <div class="hp-footer__bottom">
+      <span class="hp-footer__copy">&copy; 2026 Lovie Project Studio. All rights reserved.</span>
+      <span class="hp-footer__email"><a href="mailto:info@lovieproject.com">info@lovieproject.com</a></span>
     </div>
   </footer>
 
   <script>
+  /* Nav: transparent → frosted on scroll */
+  (function () {
+    var nav = document.getElementById('hp-nav');
+    var onScroll = function () {
+      nav.classList.toggle('hp-scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }());
+
+  /* Hamburger menu */
   (function () {
     var btn = document.querySelector('.nav-hamburger');
-    var nav = document.querySelector('.nav-links');
-    if (!btn || !nav) return;
+    var navLinks = document.querySelector('.nav-links');
+    if (!btn || !navLinks) return;
 
     var bd = document.createElement('div');
     bd.className = 'nav-backdrop';
@@ -312,7 +1036,7 @@
 
     function openMenu() {
       _openTime = Date.now();
-      nav.classList.add('nav-open');
+      navLinks.classList.add('nav-open');
       bd.style.display = 'block';
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -320,7 +1044,7 @@
 
     function closeMenu() {
       if (Date.now() - _openTime < 400) return;
-      nav.classList.remove('nav-open');
+      navLinks.classList.remove('nav-open');
       bd.style.display = 'none';
       btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
@@ -329,12 +1053,12 @@
     btn.addEventListener('touchend', function (e) {
       e.preventDefault();
       if (Date.now() - _openTime < 400) return;
-      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
+      navLinks.classList.contains('nav-open') ? closeMenu() : openMenu();
     }, { passive: false });
 
     btn.addEventListener('click', function () {
       if (Date.now() - _openTime < 400) return;
-      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
+      navLinks.classList.contains('nav-open') ? closeMenu() : openMenu();
     });
 
     setTimeout(function () {
@@ -350,6 +1074,36 @@
       if (e.key === 'Escape') closeMenu();
     });
   }());
+
+  /* Scroll reveal */
+  (function () {
+    var els = document.querySelectorAll('.hp-reveal');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var siblings = Array.from(entry.target.parentElement.querySelectorAll('.hp-reveal'));
+          var idx = siblings.indexOf(entry.target);
+          setTimeout(function () {
+            entry.target.classList.add('hp-visible');
+          }, idx * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    els.forEach(function (el) { observer.observe(el); });
+  }());
+
+  /* Newsletter */
+  function hpHandleSubscribe(e) {
+    e.preventDefault();
+    var input = e.target.querySelector('input');
+    var btn   = e.target.querySelector('button');
+    btn.textContent = '&#10003; Subscribed';
+    btn.style.background = '#4a7c59';
+    btn.style.borderColor = '#4a7c59';
+    input.value = '';
+    input.disabled = true;
+  }
   </script>
 </body>
 </html>
