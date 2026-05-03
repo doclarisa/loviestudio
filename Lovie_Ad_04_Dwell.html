@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dwell — This Could Be Your Ad</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f1eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 20px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 780px;
+  }
+
+  /* ── Paid label ── */
+  .paid-bar {
+    border-top: 2.5px solid #e8722a;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+  .paid-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #e8722a;
+    margin-bottom: 5px;
+  }
+  .paid-disclaimer {
+    font-size: 10px;
+    color: #8a8078;
+    line-height: 1.5;
+    max-width: 680px;
+  }
+
+  /* ── Ad card ── */
+  .ad {
+    background: #ffffff;
+    border: 1px solid #e8e2d9;
+    padding: 44px 48px 40px;
+    position: relative;
+  }
+
+  /* ── Logo ── */
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .logo-icon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .logo-icon span {
+    border-radius: 2px;
+    display: block;
+  }
+  .logo-icon .c1 { background: #e8722a; }
+  .logo-icon .c2 { background: #f0a030; }
+  .logo-icon .c3 { background: #1ab5a0; }
+  .logo-icon .c4 { background: #4a90d9; }
+  .logo-wordmark {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #1a1a1a;
+  }
+
+  .tagline-italic {
+    font-style: italic;
+    font-size: 14px;
+    color: #6b6560;
+    margin-bottom: 26px;
+    line-height: 1.5;
+  }
+
+  /* ── Headline ── */
+  .headline {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+  }
+  .headline .accent {
+    color: #e8722a;
+  }
+
+  .body-copy {
+    font-size: 13.5px;
+    color: #3d3830;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  /* ── Dashboard mockup ── */
+  .dashboard-wrap {
+    position: relative;
+    margin: 26px 0 22px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #d0ccc5;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Browser chrome */
+  .db-chrome {
+    background: #f0ede8;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #d8d4ce;
+  }
+  .db-dots {
+    display: flex;
+    gap: 5px;
+  }
+  .db-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+  }
+  .db-dots .dot-r { background: #e05c4b; }
+  .db-dots .dot-y { background: #e0b84b; }
+  .db-dots .dot-g { background: #5bbf5b; }
+  .db-url {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #ccc8c2;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #7a7570;
+  }
+
+  /* App header */
+  .db-header {
+    background: #1a2744;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 42px;
+  }
+  .db-brand {
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    margin-right: 28px;
+    letter-spacing: -0.02em;
+  }
+  .db-nav {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    height: 100%;
+    align-items: stretch;
+  }
+  .db-nav li {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+    cursor: default;
+    border-bottom: 2px solid transparent;
+  }
+  .db-nav li.active {
+    color: #ffffff;
+    border-bottom-color: #e8722a;
+  }
+  .db-avatar {
+    margin-left: auto;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e8722a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  /* Stats row */
+  .db-body {
+    background: #f8f6f3;
+    padding: 18px 20px 16px;
+  }
+  .db-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .db-stat {
+    background: #ffffff;
+    border: 1px solid #e8e4de;
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+  .db-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .db-stat-value.orange { color: #e8722a; }
+  .db-stat-value.teal   { color: #1ab5a0; }
+  .db-stat-value.violet { color: #8b5cf6; }
+  .db-stat-value.red    { color: #e05c4b; }
+  .db-stat-label {
+    font-size: 10px;
+    color: #8a8078;
+    line-height: 1.3;
+  }
+
+  /* Chart area */
+  .db-chart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .db-chart-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #3d3830;
+  }
+  .db-chart-delta {
+    font-size: 10.5px;
+    color: #1ab5a0;
+    font-weight: 500;
+  }
+  .db-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 42px;
+  }
+  .db-bar {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    background: #e8722a;
+    opacity: 0.75;
+  }
+  .db-bar.hi { opacity: 1; }
+  .db-bar.lo { opacity: 0.4; }
+  .db-trend {
+    height: 2px;
+    background: linear-gradient(90deg, #e8722a 0%, #1ab5a0 100%);
+    border-radius: 1px;
+    margin-top: 6px;
+    opacity: 0.5;
+  }
+
+  /* FAKE stamp */
+  .stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    z-index: 20;
+    border: 3px solid rgba(200,30,30,0.75);
+    border-radius: 4px;
+    padding: 8px 28px;
+    text-align: center;
+    pointer-events: none;
+    background: rgba(255,255,255,0.08);
+  }
+  .stamp .s1 {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: rgba(200,30,30,0.8);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .stamp .s2 {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: rgba(200,30,30,0.65);
+    text-transform: uppercase;
+    margin-top: 5px;
+    line-height: 1;
+  }
+
+  /* ── Metrics strip ── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1.5px solid #e8d4c4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 20px 0 24px;
+  }
+  .metric {
+    padding: 18px 20px;
+    border-right: 1.5px solid #e8d4c4;
+  }
+  .metric:last-child { border-right: none; }
+  .metric-value {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #e8722a;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-value.teal { color: #1ab5a0; }
+  .metric-value.violet { color: #6b5cf6; }
+  .metric-label {
+    font-size: 11px;
+    color: #6b6560;
+    line-height: 1.45;
+  }
+
+  /* ── Footer ── */
+  .ad-footer {
+    border-top: 1px solid #e8e2d9;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ad-footer-links {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  .ad-footer-links a {
+    color: #e8722a;
+    text-decoration: none;
+  }
+  .ad-footer-links a:hover { text-decoration: underline; }
+  .ad-footer-links .sep {
+    color: #c0b8b0;
+    margin: 0 8px;
+  }
+  .ad-footer-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a09a90;
+  }
+
+  /* Bottom border */
+  .bottom-rule {
+    border-bottom: 2.5px solid #e8722a;
+    margin-top: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- Paid Partnership bar -->
+    <div class="paid-bar">
+      <p class="paid-label">Paid Partnership</p>
+      <p class="paid-disclaimer">This is sponsored content. The views and claims expressed below are the advertiser's. It has been reviewed but not fact-checked by The Lovie Project's editorial desk.</p>
+    </div>
+
+    <!-- Ad card -->
+    <div class="ad">
+
+      <!-- Logo -->
+      <div class="logo-row">
+        <div class="logo-icon">
+          <span class="c1"></span>
+          <span class="c2"></span>
+          <span class="c3"></span>
+          <span class="c4"></span>
+        </div>
+        <span class="logo-wordmark">dwell</span>
+      </div>
+
+      <p class="tagline-italic">Supply chain visibility for the hours your cargo isn't moving.</p>
+
+      <!-- Headline -->
+      <h2 class="headline">The hours McLean watched are still on your <span class="accent">balance sheet.</span></h2>
+
+      <p class="body-copy">In 1937, Malcom McLean watched cargo idle on a New Jersey wharf and counted what every wasted hour cost. He invented a piece of hardware to fix it. Seventy years later, the box has won — and the math has moved.</p>
+
+      <p class="body-copy">The hours your shipments spend idle today don't show up at the wharf. They show up at terminals you've never visited, in handoffs between carriers, customs brokers, and 3PLs whose systems don't talk — in demurrage and detention, in expedite premiums, in inventory buffers larger than they should be, because no one can see what's late until it's already late.</p>
+
+      <!-- Dashboard mockup -->
+      <div class="dashboard-wrap">
+
+        <!-- Browser chrome -->
+        <div class="db-chrome">
+          <div class="db-dots">
+            <span class="dot-r"></span>
+            <span class="dot-y"></span>
+            <span class="dot-g"></span>
+          </div>
+          <div class="db-url">dwell.io/dashboard</div>
+        </div>
+
+        <!-- App header -->
+        <div class="db-header">
+          <span class="db-brand">dwell</span>
+          <ul class="db-nav">
+            <li class="active">Live</li>
+            <li>Lanes</li>
+            <li>Reports</li>
+            <li>Alerts</li>
+            <li>Settings</li>
+          </ul>
+          <div class="db-avatar">L</div>
+        </div>
+
+        <!-- Body -->
+        <div class="db-body">
+          <div class="db-stats">
+            <div class="db-stat">
+              <div class="db-stat-value orange">2,847</div>
+              <div class="db-stat-label">live shipments</div>
+            </div>
+            <div class="db-stat">
+              <div class="db-stat-value teal">$1.2M</div>
+              <div class="db-stat-label">dwell saved &middot; MTD</div>
+            </div>
+            <div class="db-stat">
+              <div class="db-stat-value violet">94%</div>
+              <div class="db-stat-label">on-time rate</div>
+            </div>
+            <div class="db-stat">
+              <div class="db-stat-value red">127</div>
+              <div class="db-stat-label">at-risk now</div>
+            </div>
+          </div>
+          <div class="db-chart-row">
+            <span class="db-chart-title">Dwell hours &middot; last 12 weeks</span>
+            <span class="db-chart-delta">&#9660; 47% vs prior period</span>
+          </div>
+          <div class="db-bars">
+            <div class="db-bar" style="height:80%"></div>
+            <div class="db-bar hi" style="height:100%"></div>
+            <div class="db-bar" style="height:90%"></div>
+            <div class="db-bar" style="height:75%"></div>
+            <div class="db-bar" style="height:85%"></div>
+            <div class="db-bar" style="height:60%"></div>
+            <div class="db-bar lo" style="height:45%"></div>
+            <div class="db-bar lo" style="height:40%"></div>
+            <div class="db-bar lo" style="height:35%"></div>
+            <div class="db-bar lo" style="height:30%"></div>
+            <div class="db-bar lo" style="height:28%"></div>
+            <div class="db-bar lo" style="height:25%"></div>
+          </div>
+          <div class="db-trend"></div>
+        </div>
+
+        <!-- FAKE stamp -->
+        <div class="stamp">
+          <span class="s1">FAKE</span>
+          <span class="s2">This could be your ad</span>
+        </div>
+
+      </div>
+      <!-- /dashboard-wrap -->
+
+      <p class="body-copy"><strong>Dwell</strong> puts every leg of every shipment in one place — in real time, in one number, with the cost of every idle hour rolled up to the dashboard the operations team and the CFO are looking at together.</p>
+
+      <!-- Metrics strip -->
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value">30–60%</div>
+          <div class="metric-label">dwell hours, demurrage, exception-handling labour</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value teal">$1.2M</div>
+          <div class="metric-label">saved per shipper, per month at typical scale</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value violet">&lt; 8 wks</div>
+          <div class="metric-label">from kickoff to first full-network visibility</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="ad-footer">
+        <div class="ad-footer-links">
+          <a href="#">dwell.io</a>
+          <span class="sep">&middot;</span>
+          <a href="#">Book a demo</a>
+          <span class="sep">&middot;</span>
+          <a href="#">sales@dwell.io</a>
+        </div>
+        <div class="ad-footer-tagline">Dwell &middot; The cost of waiting, made visible</div>
+      </div>
+
+    </div>
+    <!-- /ad -->
+
+    <div class="bottom-rule"></div>
+
+  </div>
+</body>
+</html>
